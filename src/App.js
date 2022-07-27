@@ -9,7 +9,6 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <div className='App'>
-      <h1>Egzaminas frontas</h1>
       <Header />
       <Switch>
         <Route exact path={'/'}>

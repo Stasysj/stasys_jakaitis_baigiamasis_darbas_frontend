@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
 .navLink {
   display: inline-block;
   padding: 1em 1.7em;
@@ -11,4 +17,26 @@
 }
 .navLink:hover {
   background-color: rgb(171, 184, 255);
+}
+.container {
+  display: flex;
+  max-width: 400px;
+  height: 400px;
+  margin: 50px auto;
+  background-image: linear-gradient(to left, rgb(245, 245, 245), rgb(184, 195, 255));
+
+  text-align: center;
+  /* background-image: url('bgImg.jpg'); */
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.container_form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0);
+  padding-left: 25px;
+  padding-right: 25px;
 }

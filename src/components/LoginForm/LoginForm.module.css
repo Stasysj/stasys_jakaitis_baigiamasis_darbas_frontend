@@ -1,0 +1,69 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: 160px;
+  height: 36px;
+  /* border-radius: 30px; */
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  /* background-color: rgb(92, 86, 122); */
+  background-image: linear-gradient(to right, rgb(245, 245, 245), rgb(184, 195, 255));
+}
+.title {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+  color: rgb(108, 108, 108);
+}
+
+.label {
+  display: block;
+  width: 260px;
+  margin: 5px auto 0;
+  text-align: center;
+}
+.span {
+  font-size: 12px;
+  color: #761919;
+  text-transform: uppercase;
+}
+
+.input {
+  border: none;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  /* padding-bottom: 5px; */
+  font-size: 16px;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+  text-align: center;
+  /* font-size: 14px; */
+  color: #761919b4;
+}
+
+.forgot_pass {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 12px;
+  color: #761919;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.errorMsg {
+  margin-top: 0;
+  color: tomato;
+  font-size: 12px;
+  height: 12px;
+}
+.errorInput {
+  background-color: rgb(255, 231, 226);
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
