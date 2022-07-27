@@ -4,12 +4,13 @@ import { Route, Switch } from 'react-router';
 import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/Register/RegisterPage';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className='App'>
       <h1>Egzaminas frontas</h1>
-
+      <Header />
       <Switch>
         <Route exact path={'/'}>
           <HomePage />
