@@ -13,7 +13,13 @@ function Header() {
   return (
     <header className={css.header}>
       <div className={css.img}>
-        <img className={css.logo} onClick={onClickHandler} src='logo1.png' alt='Logo' />
+        <img
+          className={css.logo}
+          onClick={onClickHandler}
+          src='Q&A.jpg
+        '
+          alt='Logo'
+        />
       </div>
 
       <nav>
@@ -22,8 +28,8 @@ function Header() {
             <NavLink className='navLink' exact to='/'>
               Home
             </NavLink>
-            <NavLink className='navLink' to='/add'>
-              Add
+            <NavLink className='navLink' to='/private'>
+              Privte zone
             </NavLink>
             <NavLink onClick={logout} className='navLink' to='/login'>
               Logout

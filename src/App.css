@@ -1,29 +1,38 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 a {
   text-decoration: none;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+} */
 .navLink {
   display: inline-block;
   padding: 1em 1.7em;
-  color: rgb(108, 108, 108);
+  color: rgb(105, 105, 105);
 }
 .navLink.active {
-  color: rgb(108, 108, 108);
+  color: rgb(105, 105, 105);
   display: inline-block;
   padding: 1em 1.7em;
   text-decoration: underline;
 }
 .navLink:hover {
-  background-color: rgb(171, 184, 255);
+  background-color: rgb(139, 196, 217);
 }
 .container {
   display: flex;
   max-width: 400px;
   height: 400px;
   margin: 50px auto;
-  background-image: linear-gradient(to left, rgb(245, 245, 245), rgb(184, 195, 255));
+  background-image: linear-gradient(to left, rgb(210, 211, 213), rgb(50, 177, 220));
 
   text-align: center;
   /* background-image: url('bgImg.jpg'); */

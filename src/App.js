@@ -1,3 +1,4 @@
+import './Reset.css';
 import './App.css';
 
 import { Route, Switch } from 'react-router';
@@ -5,6 +6,8 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/Register/RegisterPage';
 import Header from './components/Header/Header';
+
+import AnswersPage from './pages/AnswersPage/AnswersPage';
 
 function App() {
   return (
@@ -21,6 +24,10 @@ function App() {
         <Route path={'/register'}>
           <RegisterPage />
         </Route>
+        <Route path={'/answers/:id_q'}>
+          <AnswersPage />
+        </Route>
+
         <Route path='*'>
           <h2>404 Not found</h2>
         </Route>
