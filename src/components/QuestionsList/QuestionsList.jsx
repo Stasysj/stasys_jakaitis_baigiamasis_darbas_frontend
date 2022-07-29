@@ -7,8 +7,10 @@ import css from './QuestionsList.module.css';
 
 function QuestionsList() {
   const [questions, setQuestions] = useState([]);
+
   const getQuestions = async () => {
     const fetchResult = await myFetch(`${baseUrl}/questions`);
+    // const fetchResult2 = await myFetch(`${baseUrl}/questions/${id_q}/answers`);
 
     console.log(fetchResult);
     setQuestions(fetchResult);

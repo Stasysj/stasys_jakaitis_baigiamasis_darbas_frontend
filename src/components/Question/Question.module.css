@@ -13,7 +13,7 @@ p {
   border-bottom: 1px solid black;
   padding: 5px;
 }
-.question_container :hover {
+.question_middle_side :hover {
   cursor: pointer;
 }
 .question_left_side {

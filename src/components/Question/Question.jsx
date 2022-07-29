@@ -22,12 +22,12 @@ function Question({ id_q, user_id, title_q, body_q, like_q, edit_tst_q, add_tst_
     getAnswers();
   }, []);
   return (
-    <div className={css.question_container} onClick={handler}>
+    <div className={css.question_container}>
       <div className={css.question_left_side}>
         <p>votes {like_q}</p>
         <p>answers {answers.length}</p>
       </div>
-      <div className={css.question_middle_side}>
+      <div className={css.question_middle_side} onClick={handler}>
         <h3>{title_q}</h3>
         <p>{body_q}</p>
       </div>
@@ -37,6 +37,7 @@ function Question({ id_q, user_id, title_q, body_q, like_q, edit_tst_q, add_tst_
         {edit_tst_q ? (
           <p>Edited {edit_tst_q.split('T')[0]} </p>
         ) : (
+          //   <p>Created {add_tst_q.split('T')[0]} </p>
           <p>Created {add_tst_q.split('T')[0]} </p>
         )}
       </div>

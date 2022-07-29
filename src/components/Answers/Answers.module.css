@@ -1,4 +1,4 @@
-.question_card {
+.answers_card {
   /* margin: 50px auto;
       background-color: aqua;
       max-width: 600px; */
@@ -6,28 +6,30 @@
 p {
   font-size: 12px;
 }
-.question_container {
+.answers_container {
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
   margin-bottom: 5px;
   border-bottom: 1px solid black;
+  border-top: 1px solid black;
   padding: 5px;
+  cursor: context-menu;
 }
-.question_container :hover {
+/* .answers_container :hover {
   cursor: pointer;
-}
-.question_left_side {
+} */
+.answers_left_side {
   /* background-color: blueviolet; */
   text-align: right;
   padding-right: 5px;
 }
-.question_middle_side {
+.answers_middle_side {
   /* background-color: blue; */
   border-left: 1px solid black;
   border-right: 1px solid black;
   padding-left: 5px;
 }
-.question_right_side {
+.answers_right_side {
   /* background-color: tomato; */
   padding-left: 5px;
   text-align: right;
