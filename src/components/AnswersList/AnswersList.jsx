@@ -25,6 +25,12 @@ function AnswersList() {
     setAnswers(fetchResult);
   };
   console.log('uzh func', questions);
+
+  //---------------------------------------Reload votes children
+  function reloadVotes() {
+    getAnswers();
+  }
+  //---------------------------------------
   useEffect(() => {
     getAnswers();
     getQuestions();
@@ -36,7 +42,7 @@ function AnswersList() {
 
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p>
       {answers.map((aObj) => (
-        <Answers key={aObj.id_a} {...aObj} />
+        <Answers key={aObj.id_a} {...aObj} reload={reloadVotes} />
       ))}
     </div>
   );
