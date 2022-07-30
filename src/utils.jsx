@@ -12,6 +12,7 @@ export async function myFetch(url, method = 'GET', data = null) {
     console.log('myFetch error', error);
   }
 }
+//-------------------------------------------------------
 export async function myFetchAuth(url, token, newAddObj) {
   try {
     const options = {
@@ -29,6 +30,7 @@ export async function myFetchAuth(url, token, newAddObj) {
     console.log('myFetchAuth error', error);
   }
 }
+//-----------------------------------------------------
 export async function getFetchAuth(url, token) {
   try {
     const options = {
@@ -45,6 +47,25 @@ export async function getFetchAuth(url, token) {
     console.log('getFetchAuth error', error);
   }
 }
+//---------------------------------------------------Like-dislike
+export async function fetchLikes(url, token, newAddObj) {
+  try {
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newAddObj),
+    };
+    const resp = await fetch(url, options);
+    const dataInJs = await resp.json();
+    return dataInJs;
+  } catch (error) {
+    console.log('fetchLikes error', error);
+  }
+}
+//-------------------------------------------------------
 
 export const baseUrl = process.env.REACT_APP_BACKEND_URL;
 

@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
   const login = (token) => {
+    // console.log('tokenas store', token);
     setToken(token);
     localStorage.setItem('token', token);
   };

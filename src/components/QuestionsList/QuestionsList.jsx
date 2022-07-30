@@ -10,11 +10,17 @@ function QuestionsList() {
 
   const getQuestions = async () => {
     const fetchResult = await myFetch(`${baseUrl}/questions`);
+
     // const fetchResult2 = await myFetch(`${baseUrl}/questions/${id_q}/answers`);
 
-    console.log(fetchResult);
+    // console.log(fetchResult);
     setQuestions(fetchResult);
   };
+  //---------------------------------------Reload votes children
+  function reloadVotes() {
+    getQuestions();
+  }
+  //---------------------------------------
   useEffect(() => {
     getQuestions();
   }, []);
@@ -22,7 +28,7 @@ function QuestionsList() {
     <div className={css.questionsList_container}>
       QuestionsList
       {questions.map((qObj) => (
-        <Question key={qObj.id_q} {...qObj} />
+        <Question key={qObj.id_q} {...qObj} reload={reloadVotes} allArr={questions} />
       ))}
     </div>
   );

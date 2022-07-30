@@ -34,3 +34,6 @@ p {
   padding-left: 5px;
   text-align: right;
 }
+.votes {
+  margin-bottom: 0;
+}

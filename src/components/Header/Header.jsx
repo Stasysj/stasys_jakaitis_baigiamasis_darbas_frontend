@@ -25,7 +25,7 @@ function Header() {
             <NavLink className='navLink' to='/private'>
               Privte zone
             </NavLink>
-            <NavLink onClick={logout} className='navLink' to='/login'>
+            <NavLink onClick={logout} className='navLink' to='/'>
               Logout
             </NavLink>
           </>

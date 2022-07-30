@@ -33,6 +33,7 @@ function AnswersList() {
   return (
     <div className={css.answersList_container}>
       <h3>{questions.length ? questions[0].title_q : 'Lauding.......'}</h3>
+
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p>
       {answers.map((aObj) => (
         <Answers key={aObj.id_a} {...aObj} />
