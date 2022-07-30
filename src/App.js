@@ -13,6 +13,7 @@ import MyQuestionsPage from './pages/MyQuestionsPage/MyQuestionsPage';
 import MyAnswerPage from './pages/MyAnswerPage/MyAnswerPage';
 import AddQuestionPage from './pages/AddQuestionPage/AddQuestionPage';
 import EditQuestionPage from './pages/EditQuestionPage/EditQuestionPage';
+import EditAnswerPage from './pages/EditAnswerPage/EditAnswerPage';
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
 
         <Route path={'/questions/:id_q'}>
           <EditQuestionPage />
+        </Route>
+        <Route path={'/edit/answer/:id_a'}>
+          <EditAnswerPage />
         </Route>
 
         <Route path='*'>

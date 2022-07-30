@@ -75,8 +75,8 @@ function PrivateAnswers({
     reload();
   };
   console.log('edited_a', edited_a);
-  const editQuetion = async () => {
-    history.push(`/answers/${id_a}`);
+  const editAnswer = async () => {
+    history.push(`/edit/answer/${id_a}`);
   };
 
   useEffect(() => {
@@ -92,7 +92,7 @@ function PrivateAnswers({
       <div className={css.question_middle_side}>
         {/* <h3>{title_a}</h3> */}
         <p>{body_a}</p>
-        <button onClick={editQuetion}>Edit</button>
+        <button onClick={editAnswer}>Edit</button>
         <button onClick={deleteAnswer}>Delete</button>
       </div>
       {isUserLoggedIn && (

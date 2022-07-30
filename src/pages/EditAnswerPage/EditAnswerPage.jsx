@@ -1,15 +1,15 @@
 import React from 'react';
-import EditQuestionForm from '../../components/EditQuestionForm/EditQuestionForm';
+import EditAnswerForm from '../../components/EditAnswerForm/EditAnswerForm';
 
-function EditQuestionPage() {
+function EditAnswerPage() {
   return (
     <div className='container'>
       <div className='container_img'></div>
       <div className='container_form'>
-        <EditQuestionForm />
+        <EditAnswerForm />
       </div>
     </div>
   );
 }
 
-export default EditQuestionPage;
+export default EditAnswerPage;
