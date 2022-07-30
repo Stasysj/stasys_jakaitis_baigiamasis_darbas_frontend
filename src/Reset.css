@@ -18,7 +18,7 @@ img {
 }
 
 input,
-textarea,
+/* textarea, */
 select {
   font-size: 16px;
   padding: 0.3em 0.8em;
@@ -27,11 +27,11 @@ select {
   display: block;
   max-width: 300px;
 }
-textarea {
+/* textarea {
   min-height: 5rem;
   min-width: 500px;
   resize: vertical;
-}
+} */
 
 button {
   font-size: 16px;

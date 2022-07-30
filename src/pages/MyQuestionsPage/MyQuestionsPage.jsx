@@ -1,11 +1,11 @@
 import React from 'react';
-import QuestionsList from '../../components/QuestionsList/QuestionsList';
+import PrivateQuestionsList from '../../components/PrivateQuestionsLits/PrivateQuestionsList';
+// import QuestionsList from '../../components/QuestionsList/QuestionsList';
 
 function MyQuestionsPage() {
   return (
     <div>
-      MyQuestionsPage
-      <QuestionsList />
+      <PrivateQuestionsList />
     </div>
   );
 }
