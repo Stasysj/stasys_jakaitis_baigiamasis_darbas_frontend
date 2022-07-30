@@ -7,6 +7,7 @@ import { baseUrl, myFetch } from '../../utils';
 import PrivateQuestions from '../PrivateQuestions/PrivateQuestions';
 // import Question from '../Question/Question';
 import css from '../QuestionsList/QuestionsList.module.css';
+import cssM from './PrivateQuestionList.module.css';
 
 function PrivateQuestionsList() {
   const history = useHistory();
@@ -36,7 +37,10 @@ function PrivateQuestionsList() {
   return (
     <>
       <div className={css.questionsList_container}>
-        <button onClick={clickHandler}>Add new question</button>
+        <div className={cssM.button_container}>
+          <button onClick={clickHandler}>Add new question</button>
+        </div>
+
         {questions.map((qObj) => (
           <PrivateQuestions key={qObj.id_q} {...qObj} reload={reloadVotes} allArr={questions} />
         ))}

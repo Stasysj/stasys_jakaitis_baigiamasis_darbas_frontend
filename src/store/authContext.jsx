@@ -21,9 +21,9 @@ const AuthProvider = ({ children }) => {
     // console.log('tokenas store', token);
     setToken(token);
     localStorage.setItem('token', token);
-    setToken(user_id);
+    setUser_id(user_id);
     localStorage.setItem('user_id', user_id);
-    setToken(user_name);
+    setUser_name(user_name);
     localStorage.setItem('user_name', user_name);
   };
 

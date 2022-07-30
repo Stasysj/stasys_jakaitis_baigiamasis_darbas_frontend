@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
-import { baseUrl, fetchLikes, myFetch } from '../../utils';
+import { baseUrl, deleteFetchAuth, fetchLikes, myFetch } from '../../utils';
 import css from '../Question/Question.module.css';
 
 function PrivateQuestions({
@@ -66,7 +66,14 @@ function PrivateQuestions({
   //     console.log('fetchResult', fetchResult);
   //     reload();
   //   }
-  //----------------------------------------------------------
+  //----------------------------------------------------------Dlete Hanler
+
+  const deleteQuestion = async () => {
+    const fetchResult = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
+    // setAnswers(fetchResult);
+    reload();
+  };
+
   useEffect(() => {
     getAnswers();
   }, []);
@@ -85,6 +92,8 @@ function PrivateQuestions({
       <div className={css.question_middle_side}>
         <h3>{title_q}</h3>
         <p>{body_q}</p>
+        <button>Edit</button>
+        <button onClick={deleteQuestion}>Delete</button>
       </div>
       {isUserLoggedIn && (
         <div className={css.question_right_side}>

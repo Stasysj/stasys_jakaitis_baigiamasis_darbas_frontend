@@ -12,7 +12,7 @@ export async function myFetch(url, method = 'GET', data = null) {
     console.log('myFetch error', error);
   }
 }
-//-------------------------------------------------------
+//-------------------------------------------------------post
 export async function myFetchAuth(url, token, newAddObj) {
   try {
     const options = {
@@ -30,7 +30,7 @@ export async function myFetchAuth(url, token, newAddObj) {
     console.log('myFetchAuth error', error);
   }
 }
-//-----------------------------------------------------
+//-----------------------------------------------------get
 export async function getFetchAuth(url, token) {
   try {
     const options = {
@@ -45,6 +45,23 @@ export async function getFetchAuth(url, token) {
     return dataInJs;
   } catch (error) {
     console.log('getFetchAuth error', error);
+  }
+}
+//---------------------------------------------------del
+export async function deleteFetchAuth(url, token) {
+  try {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const resp = await fetch(url, options);
+    const dataInJs = await resp.json();
+    return dataInJs;
+  } catch (error) {
+    console.log('deleteFetchAuth error', error);
   }
 }
 //---------------------------------------------------Like-dislike
