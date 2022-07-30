@@ -64,6 +64,24 @@ export async function deleteFetchAuth(url, token) {
     console.log('deleteFetchAuth error', error);
   }
 }
+//-------------------------------------------------------Edit
+export async function editFetchAuth(url, token, newAddObj) {
+  try {
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newAddObj),
+    };
+    const resp = await fetch(url, options);
+    const dataInJs = await resp.json();
+    return dataInJs;
+  } catch (error) {
+    console.log('editFetchAuth error', error);
+  }
+}
 //---------------------------------------------------Like-dislike
 export async function fetchLikes(url, token, newAddObj) {
   try {

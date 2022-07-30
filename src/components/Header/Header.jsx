@@ -32,7 +32,7 @@ function Header() {
             <NavLink className='navLink' to={`/private/answers/${user_id}`}>
               My answers
             </NavLink>
-            <NavLink onClick={logout} className='navLink' to='/'>
+            <NavLink onClick={logout} className='navLink' to='/login'>
               Logout
             </NavLink>
           </>

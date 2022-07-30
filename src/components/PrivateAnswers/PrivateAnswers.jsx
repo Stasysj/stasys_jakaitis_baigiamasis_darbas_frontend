@@ -3,18 +3,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
-import { baseUrl, deleteFetchAuth, editFetchAuth, fetchLikes, myFetch } from '../../utils';
+import { baseUrl, deleteFetchAuth, getFetchAuth, myFetch } from '../../utils';
 import css from '../Question/Question.module.css';
 
-function PrivateQuestions({
-  id_q,
+function PrivateAnswers({
+  id_a,
   user_id,
-  title_q,
-  body_q,
-  like_q,
-  edit_tst_q,
-  add_tst_q,
+  title_a,
+  body_a,
+  like_a,
+  edit_tst_a,
+  add_tst_a,
   reload,
+  edited_a,
   likes_counter_q,
   allArr,
 }) {
@@ -29,11 +30,11 @@ function PrivateQuestions({
   //     history.push(`/answers/${id_q}`);
   //   }
   //---------------------------------------------------Atsakymu parsiuntimas
-  const getAnswers = async () => {
-    const fetchResult = await myFetch(`${baseUrl}/questions/${id_q}/answers`);
-    // console.log('ddddddddddd', fetchResult);
-    setAnswers(fetchResult);
-  };
+  // const getAnswers = async () => {
+  //   const fetchResult = await getFetchAuth(`${baseUrl}/questions/${id_q}/answers`);
+  //   // console.log('ddddddddddd', fetchResult);
+  //   setAnswers(fetchResult);
+  // };
   //---------------------------------------------------Like
   //   async function likesUp() {
   //     // const arNesikartojaId = allArr.find((obj) => obj.id_q === id_q).likes_counter_q.split('z');
@@ -68,42 +69,38 @@ function PrivateQuestions({
   //   }
   //----------------------------------------------------------Dlete Hanler
 
-  const deleteQuestion = async () => {
-    const fetchResult = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
+  const deleteAnswer = async () => {
+    const fetchResult = await deleteFetchAuth(`${baseUrl}/answers/${id_a}`, token);
     // setAnswers(fetchResult);
     reload();
   };
+  console.log('edited_a', edited_a);
   const editQuetion = async () => {
-    history.push(`/questions/${id_q}`);
+    history.push(`/answers/${id_a}`);
   };
 
   useEffect(() => {
-    getAnswers();
+    // getAnswers();
   }, []);
   return (
     <div className={css.question_container}>
       <div className={css.question_left_side}>
-        {/* {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>} */}
+        <p className={css.votes}> votes {like_a} </p>
 
-        <p className={css.votes}> votes {like_q} </p>
-        {/* {isUserLoggedIn && (
-          <i className='fa fa-caret-down' aria-hidden='true' onClick={likesDown}></i>
-        )} */}
-
-        <p className={css.answers}>answers {answers.length}</p>
+        {/* <p className={css.answers}>answers {answers.length}</p> */}
       </div>
       <div className={css.question_middle_side}>
-        <h3>{title_q}</h3>
-        <p>{body_q}</p>
+        {/* <h3>{title_a}</h3> */}
+        <p>{body_a}</p>
         <button onClick={editQuetion}>Edit</button>
-        <button onClick={deleteQuestion}>Delete</button>
+        <button onClick={deleteAnswer}>Delete</button>
       </div>
       {isUserLoggedIn && (
         <div className={css.question_right_side}>
-          {isUserLoggedIn && edit_tst_q ? (
-            <p>Edited {edit_tst_q.split('T')[0]} </p>
+          {isUserLoggedIn && edit_tst_a ? (
+            <p>Edited {edit_tst_a.split('T')[0]} </p>
           ) : (
-            <p>Created {add_tst_q.split('T')[0]} </p>
+            <p>Created {add_tst_a.split('T')[0]} </p>
           )}
         </div>
       )}
@@ -111,4 +108,4 @@ function PrivateQuestions({
   );
 }
 
-export default PrivateQuestions;
+export default PrivateAnswers;

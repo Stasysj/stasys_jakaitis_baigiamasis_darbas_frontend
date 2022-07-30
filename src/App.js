@@ -12,6 +12,7 @@ import PrivatePage from './pages/PrivatePage/PrivatePage';
 import MyQuestionsPage from './pages/MyQuestionsPage/MyQuestionsPage';
 import MyAnswerPage from './pages/MyAnswerPage/MyAnswerPage';
 import AddQuestionPage from './pages/AddQuestionPage/AddQuestionPage';
+import EditQuestionPage from './pages/EditQuestionPage/EditQuestionPage';
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
 
         <Route path={'/private/answers/:user_id'}>
           <MyAnswerPage />
+        </Route>
+
+        <Route path={'/questions/:id_q'}>
+          <EditQuestionPage />
         </Route>
 
         <Route path='*'>
