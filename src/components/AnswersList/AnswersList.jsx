@@ -1,13 +1,15 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { baseUrl, myFetch } from '../../utils';
 import Answers from '../Answers/Answers';
 
 import css from './AnswersList.module.css';
+import cssM from '../PrivateQuestionsLits/PrivateQuestionList.module.css';
 
 function AnswersList() {
+  const history = useHistory();
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState([]);
   const { id_q } = useParams();
@@ -31,6 +33,10 @@ function AnswersList() {
     getAnswers();
   }
   //---------------------------------------
+  function clickHandler() {
+    history.push(`/add/private/answers/${id_q}`);
+  }
+
   useEffect(() => {
     getAnswers();
     getQuestions();
@@ -38,6 +44,9 @@ function AnswersList() {
 
   return (
     <div className={css.answersList_container}>
+      <div className={cssM.button_container}>
+        <button onClick={clickHandler}>Add new Answer</button>
+      </div>
       <h3>{questions.length ? questions[0].title_q : 'Lauding.......'}</h3>
 
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p>

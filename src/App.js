@@ -14,6 +14,7 @@ import MyAnswerPage from './pages/MyAnswerPage/MyAnswerPage';
 import AddQuestionPage from './pages/AddQuestionPage/AddQuestionPage';
 import EditQuestionPage from './pages/EditQuestionPage/EditQuestionPage';
 import EditAnswerPage from './pages/EditAnswerPage/EditAnswerPage';
+import AddAnswerPage from './pages/AddAnswerPage/AddAnswerPage';
 
 function App() {
   return (
@@ -50,6 +51,10 @@ function App() {
         </Route>
         <Route path={'/edit/answer/:id_a'}>
           <EditAnswerPage />
+        </Route>
+
+        <Route path={'/add/private/answers/:id_q'}>
+          <AddAnswerPage />
         </Route>
 
         <Route path='*'>
