@@ -49,3 +49,9 @@ p {
   padding-left: 25px;
   padding-right: 25px;
 }
+.fa:hover {
+  cursor: pointer;
+}
+.fa {
+  font-size: 20px;
+}

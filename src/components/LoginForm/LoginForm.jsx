@@ -36,8 +36,8 @@ function LoginForm() {
         console.log('Nepavyko prisiloginti tokeno nera');
         return;
       }
-
-      login(fetchResult.token);
+      console.log('gauti rezai', fetchResult);
+      login(fetchResult.token, fetchResult.user_id, fetchResult.full_name);
       console.log('tokenas irasytas');
       // if (fetchResult.err) {
       //   SetError(fetchResult);

@@ -8,6 +8,9 @@ import RegisterPage from './pages/Register/RegisterPage';
 import Header from './components/Header/Header';
 
 import AnswersPage from './pages/AnswersPage/AnswersPage';
+import PrivatePage from './pages/PrivatePage/PrivatePage';
+import MyQuestionsPage from './pages/MyQuestionsPage/MyQuestionsPage';
+import MyAnswerPage from './pages/MyAnswerPage/MyAnswerPage';
 
 function App() {
   return (
@@ -26,6 +29,14 @@ function App() {
         </Route>
         <Route path={'/answers/:id_q'}>
           <AnswersPage />
+        </Route>
+
+        <Route path={'/private/questions/:user_id'}>
+          <MyQuestionsPage />
+        </Route>
+
+        <Route path={'/private/answers/:user_id'}>
+          <MyAnswerPage />
         </Route>
 
         <Route path='*'>
