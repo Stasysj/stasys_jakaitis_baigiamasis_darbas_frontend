@@ -43,12 +43,15 @@ function Question({
     const likesArr = await myFetch(`${baseUrl}/questions/likes/${user_id}/${id_q}`);
     console.log('ka siuncia', user_id, id_q);
     console.log('likesArr likesUp', likesArr);
-    const kaiDarNiekasNeLaikinoArr = likesArr.filter((likeObj) => likeObj.like_q === null);
-    console.log('kaiDarNiekasNeLaikinoArr', kaiDarNiekasNeLaikinoArr);
+    // const kaiDarNiekasNeLaikinoArr = likesArr.filter((likeObj) => likeObj.like_q === null);
+    // console.log('kaiDarNiekasNeLaikinoArr', kaiDarNiekasNeLaikinoArr);
     console.log('Ar nepakitp likesArr', likesArr);
-    const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => (likesObj.user_id = user_id));
+    const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
     console.log('arUserisJauPalaikinesArr', arUserisJauPalaikinesArr);
-    !kaiDarNiekasNeLaikinoArr.length && sukuriamLaika();
+
+    !arUserisJauPalaikinesArr.length && sukuriamLaika();
+    // console.log(arUserisJauPalaikinesArr[0].like_q);
+    arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau laikinai') : laikinam();
 
     // !likesArr.length
     //   ? sukuriamLaika()
@@ -74,6 +77,7 @@ function Question({
     console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
     rezultatasLaikinam.affectedRows === 1 && likesUpNumber();
   }
+
   async function likesUpNumber() {
     const body = {
       id_q: id_q,
@@ -82,6 +86,7 @@ function Question({
     console.log('fetchResult', fetchResult);
     reload();
   }
+
   // async function likesUp() {
   //   const body = {
   //     id_q: id_q,
@@ -96,7 +101,48 @@ function Question({
     const likesArr = await myFetch(`${baseUrl}/questions/likes/${user_id}/${id_q}`);
     console.log('ka siuncia', user_id, id_q);
     console.log('likesArr likesUp', likesArr);
-    !likesArr.length ? sukuriamLaika() : console.log('Tu jau laikinai');
+    // const kaiDarNiekasNeLaikinoArr = likesArr.filter((likeObj) => likeObj.like_q === null);
+    // console.log('kaiDarNiekasNeLaikinoArr', kaiDarNiekasNeLaikinoArr);
+    console.log('Ar nepakitp likesArr', likesArr);
+    const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
+    console.log('arUserisJauPalaikinesArr', arUserisJauPalaikinesArr);
+
+    !arUserisJauPalaikinesArr.length && sukuriamDisLaika();
+    // console.log(arUserisJauPalaikinesArr[0].like_q);
+    !arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau DIS laikinai') : disLaikinam();
+
+    // !likesArr.length
+    //   ? sukuriamLaika()
+    //   : likesArr[0].like_q
+    //   ? console.log('Tu jau laikinai')
+    //   : laikinam();
+  }
+
+  async function sukuriamDisLaika() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/questions/likes/2/${user_id}/${id_q}`,
+      token
+    );
+
+    console.log('RezultatasLaikinam', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesDownNumber();
+  }
+  async function disLaikinam() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/questions/likes/2/dislikes/${user_id}/${id_q}`,
+      token
+    );
+    console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesDownNumber();
+  }
+
+  async function likesDownNumber() {
+    const body = {
+      id_q: id_q,
+    };
+    const fetchResult = await fetchLikes(`${baseUrl}/questions/dislikes`, token, body);
+    console.log('fetchResult', fetchResult);
+    reload();
   }
   //   async function likesDown() {
   //     const body = {
