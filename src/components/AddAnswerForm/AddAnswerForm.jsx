@@ -30,6 +30,8 @@ function AddAnswerForm() {
       //   password: Yup.string().min(4, 'Maziausiai 4 simboliai').max(7).required(),
     }),
     onSubmit: async (values) => {
+      values.add_time_a = new Date().toLocaleString('sv-SE');
+      values.add_time_mili_a = Date.parse(new Date());
       values.user_id = user_id;
       console.log('values', values);
 

@@ -15,6 +15,9 @@ function Question({
   edit_tst_q,
   add_tst_q,
   reload,
+  edited_q,
+  add_time_q,
+  add_time_mili_q,
   likes_counter_q,
   allArr,
 }) {
@@ -88,11 +91,8 @@ function Question({
       </div>
       {isUserLoggedIn && (
         <div className={css.question_right_side}>
-          {isUserLoggedIn && edit_tst_q ? (
-            <p>Edited {edit_tst_q.split('T')[0]} </p>
-          ) : (
-            <p>Created {add_tst_q.split('T')[0]} </p>
-          )}
+          {<p> Add {add_time_q} </p>}
+          {edited_q ? <p>Edited </p> : ''}
         </div>
       )}
     </div>

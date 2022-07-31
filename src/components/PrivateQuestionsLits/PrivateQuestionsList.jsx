@@ -41,9 +41,13 @@ function PrivateQuestionsList() {
           <button onClick={clickHandler}>Add new question</button>
         </div>
 
-        {questions.map((qObj) => (
-          <PrivateQuestions key={qObj.id_q} {...qObj} reload={reloadVotes} allArr={questions} />
-        ))}
+        {questions.length > 0 ? (
+          questions.map((qObj) => (
+            <PrivateQuestions key={qObj.id_q} {...qObj} reload={reloadVotes} allArr={questions} />
+          ))
+        ) : (
+          <p>Jūs dar neparšėte nei vieno klausimo!</p>
+        )}
       </div>
     </>
   );

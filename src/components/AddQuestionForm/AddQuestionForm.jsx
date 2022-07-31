@@ -30,6 +30,8 @@ function AddQuestionForm() {
     }),
     onSubmit: async (values) => {
       values.user_id = user_id;
+      values.add_time_q = new Date().toLocaleString('sv-SE');
+      values.add_time_mili_q = Date.parse(new Date());
       console.log('values', values);
 
       SetError('');

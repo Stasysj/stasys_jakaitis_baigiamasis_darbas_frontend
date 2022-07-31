@@ -45,9 +45,11 @@ function MyAnswersList() {
       {/* <h3>{questions.length ? questions[0].title_q : 'Lauding.......'}</h3>
 
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p> */}
-      {answers.map((aObj) => (
-        <PrivateAnswers key={aObj.id_a} {...aObj} reload={reload} />
-      ))}
+      {answers.length > 0 ? (
+        answers.map((aObj) => <PrivateAnswers key={aObj.id_a} {...aObj} reload={reload} />)
+      ) : (
+        <p>Jūs dar neparšėte nei vieno atsakymo!</p>
+      )}
     </div>
   );
 }

@@ -6,7 +6,19 @@ import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, fetchLikes, myFetch } from '../../utils';
 import css from './Answers.module.css';
 
-function Answers({ id_a, user_id, title_a, body_a, like_a, edit_tst_a, add_tst_a, reload }) {
+function Answers({
+  id_a,
+  user_id,
+  title_a,
+  body_a,
+  like_a,
+  edit_tst_a,
+  add_tst_a,
+  reload,
+  edited_a,
+  add_time_mili_a,
+  add_time_a,
+}) {
   const { token, isUserLoggedIn } = useAuthCtx();
   //   const [questions, setQuestions] = useState([]);
   //   const { id_q } = useParams();
@@ -52,11 +64,8 @@ function Answers({ id_a, user_id, title_a, body_a, like_a, edit_tst_a, add_tst_a
         <p>{body_a}</p>
       </div>
       <div className={css.answers_right_side}>
-        {edit_tst_a ? (
-          <p>Edited {edit_tst_a.split('T')[0]} </p>
-        ) : (
-          <p>Created {add_tst_a.split('T')[0]} </p>
-        )}
+        {<p> Add {add_time_a} </p>}
+        {edited_a ? <p>Edited </p> : ''}
       </div>
     </div>
   );

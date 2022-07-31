@@ -17,6 +17,8 @@ function PrivateQuestions({
   reload,
   likes_counter_q,
   allArr,
+  edited_q,
+  add_time_q,
 }) {
   const { token, isUserLoggedIn } = useAuthCtx();
   //   console.log('tokenas', token, isUserLoggedIn);
@@ -69,7 +71,14 @@ function PrivateQuestions({
   //----------------------------------------------------------Dlete Hanler
 
   const deleteQuestion = async () => {
-    const fetchResult = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
+    const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
+    console.log('istrynem klausimus');
+    console.log('q id---', id_q);
+    const fetchResultQuestionAnswers = await deleteFetchAuth(
+      `${baseUrl}/answers/all/${id_q}`,
+      token
+    );
+
     // setAnswers(fetchResult);
     reload();
   };
@@ -100,11 +109,8 @@ function PrivateQuestions({
       </div>
       {isUserLoggedIn && (
         <div className={css.question_right_side}>
-          {isUserLoggedIn && edit_tst_q ? (
-            <p>Edited {edit_tst_q.split('T')[0]} </p>
-          ) : (
-            <p>Created {add_tst_q.split('T')[0]} </p>
-          )}
+          {<p> Add {add_time_q} </p>}
+          {edited_q ? <p>Edited </p> : ''}
         </div>
       )}
     </div>
