@@ -13,7 +13,7 @@ export async function myFetch(url, method = 'GET', data = null) {
   }
 }
 //-------------------------------------------------------post
-export async function myFetchAuth(url, token, newAddObj) {
+export async function myFetchAuth(url, token, newAddObj = null) {
   try {
     const options = {
       method: 'POST',

@@ -19,6 +19,7 @@ function PrivateQuestions({
   allArr,
   edited_q,
   add_time_q,
+  number_a,
 }) {
   const { token, isUserLoggedIn } = useAuthCtx();
   //   console.log('tokenas', token, isUserLoggedIn);
@@ -69,15 +70,30 @@ function PrivateQuestions({
   //     reload();
   //   }
   //----------------------------------------------------------Dlete Hanler
-
-  const deleteQuestion = async () => {
+  console.log('Atsakymu skaicius', number_a);
+  const deleteQuestionAndAnswers = async () => {
     const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
     console.log('istrynem klausimus');
     console.log('q id---', id_q);
+
     const fetchResultQuestionAnswers = await deleteFetchAuth(
       `${baseUrl}/answers/all/${id_q}`,
       token
     );
+
+    // setAnswers(fetchResult);
+    reload();
+  };
+  console.log('Atsakymu skaicius', number_a);
+  const deleteQuestion = async () => {
+    const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
+    console.log('istrynem klausimus');
+    console.log('q id---', id_q);
+
+    // const fetchResultQuestionAnswers = await deleteFetchAuth(
+    //   `${baseUrl}/answers/all/${id_q}`,
+    //   token
+    // );
 
     // setAnswers(fetchResult);
     reload();
@@ -105,7 +121,7 @@ function PrivateQuestions({
         <h3>{title_q}</h3>
         <p>{body_q}</p>
         <button onClick={editQuetion}>Edit</button>
-        <button onClick={deleteQuestion}>Delete</button>
+        <button onClick={number_a ? deleteQuestionAndAnswers : deleteQuestion}>Delete</button>
       </div>
       {isUserLoggedIn && (
         <div className={css.question_right_side}>
