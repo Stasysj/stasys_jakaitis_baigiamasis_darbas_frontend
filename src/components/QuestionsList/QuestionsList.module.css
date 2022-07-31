@@ -4,3 +4,15 @@
   max-width: 600px;
   padding: 15px;
 }
+.all_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+.antrastes {
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  align-items: center;
+}

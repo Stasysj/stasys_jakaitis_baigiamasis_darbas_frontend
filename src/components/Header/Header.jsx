@@ -40,6 +40,9 @@ function Header() {
 
         {!isUserLoggedIn && (
           <>
+            <NavLink className='navLink' exact to='/'>
+              Home
+            </NavLink>
             <NavLink className='navLink' to='/login'>
               Login
             </NavLink>
