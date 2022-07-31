@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 
 import * as Yup from 'yup';
-import { baseUrl, myFetch, myFetchAuth } from '../../utils';
+import { baseUrl, editFetchAuth, myFetch, myFetchAuth } from '../../utils';
 import toast, { Toaster } from 'react-hot-toast';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState } from 'react';
@@ -36,6 +36,16 @@ function AddAnswerForm() {
       SetError('');
       const fetchResult = await myFetchAuth(`${baseUrl}/questions/${id_q}/answers`, token, values);
       console.log('fetchResult', fetchResult);
+      const obj = {
+        id_q: id_q,
+      };
+      const fetccounthResult = await editFetchAuth(
+        `${baseUrl}/questions/answers/count`,
+        token,
+        obj
+      );
+      console.log('fetccounthResult', fetccounthResult);
+
       // if (fetchResult === 'no user created') {
       //   SetError(fetchResult);
       //   return;

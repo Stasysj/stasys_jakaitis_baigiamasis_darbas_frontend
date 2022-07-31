@@ -29,6 +29,15 @@ function QuestionsList() {
   function clickHandler() {
     history.push(`/add/private/questions/${user_id}`);
   }
+  //------------------------------------------------------Filtrai---------
+  //----------------------------------------------------------------------
+  function filtrasAtsakyti() {
+    const arrCopy = [questions];
+  }
+  function filtrasNEatsakyti() {}
+  //-------------------------------------------------------
+  //---------------------------------------------Rusiavimas
+  // ------------------------------------------------------
   useEffect(() => {
     getQuestions();
   }, []);
@@ -44,8 +53,9 @@ function QuestionsList() {
       </div>
       <div className={css.all_buttons_container}>
         <div className={css.button_container}>
-          <button>Atsakyti klausimai </button>
-          <button>Neatsakyti klausimai </button>
+          <button onClick={filtrasAtsakyti}>Atsakyti </button>
+          <button onClick={filtrasNEatsakyti}>Neatsakyti</button>
+          <button onClick={getQuestions}>Visi</button>
         </div>
         <div className={css.button_container}>
           <button>Atsakymų skaičių </button>
