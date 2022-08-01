@@ -8,7 +8,7 @@
   color: rgb(105, 105, 105);
   font-size: 15px;
   cursor: pointer;
-  background-color: rgb(71, 181, 219);
+  background-color: rgba(142, 143, 144, 0.702);
   /* background-image: linear-gradient(to right, rgb(245, 245, 245), rgb(184, 195, 255)); */
   border: 1px solid #777;
 }

@@ -45,7 +45,7 @@ function LoginForm() {
       // }
       const notify = () =>
         toast.success('Prisijungėte sėkmingai, tuoj būsite peradresuotas į pagrindinį puslapį.', {
-          duration: 4000,
+          duration: 2000,
           position: 'top-center',
         });
 
@@ -53,7 +53,7 @@ function LoginForm() {
         notify() &&
         setTimeout(() => {
           history.replace('/');
-        }, 4000);
+        }, 2000);
     },
   });
 

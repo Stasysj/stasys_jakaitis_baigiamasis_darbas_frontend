@@ -1,7 +1,9 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  background-image: linear-gradient(to right, rgb(210, 211, 213), rgb(50, 177, 220));
+  /* display: flex;
+  justify-content: space-between; */
+  /* background-image: linear-gradient(to right, rgb(210, 211, 213), rgb(50, 177, 220)); */
+
+  background-image: url('../../img2.jpg');
 }
 
 /* .navLink {
@@ -29,4 +31,9 @@
   display: flex;
   align-items: center;
   margin-left: 5px;
+}
+.filtras {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, rgba(210, 211, 213, 0.574), rgb(50, 177, 220));
 }
