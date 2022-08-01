@@ -36,29 +36,29 @@ function App() {
           <AnswersPage />
         </Route>
         {/* Privati info */}
-        <ProtectedRoute>
-          <Route path={'/private/questions/:user_id'}>
-            <MyQuestionsPage />
-          </Route>
-          <Route path={'/add/private/questions/:user_id'}>
-            <AddQuestionPage />
-          </Route>
+        {/* <ProtectedRoute> */}
+        <Route path={'/private/questions/:user_id'}>
+          <MyQuestionsPage />
+        </Route>
+        <Route path={'/add/private/questions/:user_id'}>
+          <AddQuestionPage />
+        </Route>
 
-          <Route path={'/private/answers/:user_id'}>
-            <MyAnswerPage />
-          </Route>
+        <Route path={'/private/answers/:user_id'}>
+          <MyAnswerPage />
+        </Route>
 
-          <Route path={'/questions/:id_q'}>
-            <EditQuestionPage />
-          </Route>
-          <Route path={'/edit/answer/:id_a'}>
-            <EditAnswerPage />
-          </Route>
+        <Route path={'/questions/:id_q'}>
+          <EditQuestionPage />
+        </Route>
+        <Route path={'/edit/answer/:id_a'}>
+          <EditAnswerPage />
+        </Route>
 
-          <Route path={'/add/private/answers/:id_q'}>
-            <AddAnswerPage />
-          </Route>
-        </ProtectedRoute>
+        <Route path={'/add/private/answers/:id_q'}>
+          <AddAnswerPage />
+        </Route>
+        {/* </ProtectedRoute> */}
 
         <Route path='*'>
           <h2>404 Not found</h2>

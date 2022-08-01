@@ -19,14 +19,14 @@ img {
 
 input,
 /* textarea, */
-select {
+/* select {
   font-size: 16px;
   padding: 0.3em 0.8em;
   border-radius: 4px;
   border: 1px solid #777;
   display: block;
   max-width: 300px;
-}
+} */
 /* textarea {
   min-height: 5rem;
   min-width: 500px;
@@ -58,13 +58,13 @@ p {
   padding: 0 20px;
 }
 
-.card {
+/* .card {
   padding: 1rem;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
   border: 1px solid rgb(191, 180, 180);
   border-radius: 5px;
   background-color: snow;
-}
+} */
 
 /*  helpers */
 

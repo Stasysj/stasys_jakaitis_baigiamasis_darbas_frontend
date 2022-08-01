@@ -32,7 +32,7 @@ p {
 .container {
   display: flex;
   max-width: 400px;
-  height: 400px;
+  height: 450px;
   margin: 50px auto;
   background-image: linear-gradient(to left, rgb(210, 211, 213), rgb(50, 177, 220));
 

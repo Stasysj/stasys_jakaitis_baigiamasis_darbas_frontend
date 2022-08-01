@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 
 import * as Yup from 'yup';
-import { baseUrl, myFetch, myFetchAuth } from '../../utils';
+import { baseUrl, myFetchAuth } from '../../utils';
 import toast, { Toaster } from 'react-hot-toast';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ const initValues = {
 };
 // -------------------------------
 function AddQuestionForm() {
-  const { token, isUserLoggedIn, user_id } = useAuthCtx();
+  const { token, user_id } = useAuthCtx();
   const history = useHistory();
   const [error, SetError] = useState('');
 
@@ -26,7 +26,6 @@ function AddQuestionForm() {
     validationSchema: Yup.object({
       title_q: Yup.string().min(4, 'Maziausiai 4 simboliai').max(25).required('Privalomas laukas'),
       body_q: Yup.string().min(4, 'Maziausiai 4 simboliai').max(250).required('Privalomas laukas'),
-      //   password: Yup.string().min(4, 'Maziausiai 4 simboliai').max(7).required(),
     }),
     onSubmit: async (values) => {
       values.user_id = user_id;
@@ -37,29 +36,22 @@ function AddQuestionForm() {
       SetError('');
       const fetchResult = await myFetchAuth(`${baseUrl}/questions`, token, values);
       console.log('fetchResult', fetchResult);
-      // if (fetchResult === 'no user created') {
-      //   SetError(fetchResult);
-      //   return;
-      // }
-      // if (fetchResult === 'user alredy exists') {
-      //   SetError(fetchResult);
-      //   return;
-      // }
-      // const notify = () =>
-      //   toast.success('Registracija sėkminga,tuoj būsite peradresuoti i Login puslapį.', {
-      //     duration: 4000,
-      //     position: 'top-center',
-      //   });
-      // fetchResult === 'user created' &&
-      //   notify() &&
-      //   setTimeout(() => {
-      //     history.replace('/login');
-      //   }, 4000);
+
+      const notify = () =>
+        toast.success('Klausimas pridėtas,tuoj būsite peradresuoti i klausmų puslapį.', {
+          duration: 2000,
+          position: 'top-center',
+        });
+      fetchResult === 'Question successfully added' &&
+        notify() &&
+        setTimeout(() => {
+          history.replace('/');
+        }, 2000);
     },
   });
   return (
     <form className={css.form} onSubmit={formik.handleSubmit}>
-      {/* <Toaster /> */}
+      <Toaster />
       <h1 className={css.title}>Add new question.</h1>
 
       <label className={css.label}>
@@ -88,18 +80,7 @@ function AddQuestionForm() {
         />
       </label>
       <p className={css.errorMsg}>{formik.errors.body_q}</p>
-      {/* <label className={css.label}>
-        <span className={css.span}>Password</span>
-        <input
-          type='password'
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-          className={formik.touched.password && formik.errors.password ? css.errorInput : css.input}
-          name='password'
-        />
-      </label>
-      <p className={css.errorMsg}>{formik.errors.password}</p> */}
+
       {error && <p className={css.errorMsg}>{error}</p>}
       <button className={css.btn} type='submit'>
         SIGN UP
