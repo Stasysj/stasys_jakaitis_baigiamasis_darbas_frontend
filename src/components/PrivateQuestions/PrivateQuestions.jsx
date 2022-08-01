@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, deleteFetchAuth, editFetchAuth, fetchLikes, myFetch } from '../../utils';
+import toast, { Toaster } from 'react-hot-toast';
 import css from '../Question/Question.module.css';
 
 function PrivateQuestions({
@@ -71,6 +72,7 @@ function PrivateQuestions({
   //   }
   //----------------------------------------------------------Dlete Hanler
   console.log('Atsakymu skaicius', number_a);
+
   const deleteQuestionAndAnswers = async () => {
     const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
     console.log('istrynem klausimus');
@@ -89,15 +91,28 @@ function PrivateQuestions({
     const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
     console.log('istrynem klausimus');
     console.log('q id---', id_q);
+    console.log('fetchResultQuestion delete', fetchResultQuestion);
+    //----------------------------------------------------------------------rashyti TOSTAAAAAAAAAAA
 
+    const notify = () =>
+      toast.success('Klausimas sėkmingai ištrintas.', {
+        duration: 2000,
+        position: 'top-center',
+      });
+    fetchResultQuestion === 'Question successfully deleted' &&
+      notify() &&
+      setTimeout(() => {
+        reload();
+        // history.replace('/');
+      }, 2000);
     // const fetchResultQuestionAnswers = await deleteFetchAuth(
     //   `${baseUrl}/answers/all/${id_q}`,
     //   token
     // );
 
     // setAnswers(fetchResult);
-    reload();
   };
+
   const editQuetion = async () => {
     history.push(`/questions/${id_q}`);
   };
@@ -107,6 +122,7 @@ function PrivateQuestions({
   }, []);
   return (
     <div className={css.question_container}>
+      <Toaster />
       <div className={css.question_left_side}>
         {/* {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>} */}
 

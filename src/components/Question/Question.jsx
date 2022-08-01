@@ -176,12 +176,11 @@ function Question({
         <h3>{title_q}</h3>
         <p>{body_q}</p>
       </div>
-      {isUserLoggedIn && (
-        <div className={css.question_right_side}>
-          {<p> Add {add_time_q} </p>}
-          {edited_q ? <p>Edited </p> : ''}
-        </div>
-      )}
+
+      <div className={css.question_right_side}>
+        {<p> Add {add_time_q} </p>}
+        {isUserLoggedIn && edited_q ? <p>Edited </p> : ''}{' '}
+      </div>
     </div>
   );
 }
