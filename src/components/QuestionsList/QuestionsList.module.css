@@ -3,6 +3,7 @@
   background-color: rgb(255, 255, 255);
   max-width: 600px;
   padding: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .all_buttons_container {
   display: flex;
@@ -13,6 +14,10 @@
 .antrastes {
   display: flex;
   justify-content: space-between;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   align-items: center;
+}
+.title {
+  text-decoration: underline;
+  font-style: italic;
 }

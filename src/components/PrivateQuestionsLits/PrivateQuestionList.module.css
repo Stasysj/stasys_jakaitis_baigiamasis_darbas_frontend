@@ -1,7 +1,15 @@
 .button_container {
-  background-color: tomato;
+  /* background-color: rgb(71, 255, 151); */
   margin-bottom: 15px;
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
+  justify-content: right;
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+.button {
+  background-color: rgb(50, 177, 220);
+  padding: 6px 14px;
+}
+.nulisIrasu {
+  color: tomato;
 }

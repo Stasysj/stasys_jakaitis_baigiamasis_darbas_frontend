@@ -97,7 +97,7 @@ function PrivateAnswers({
         <button onClick={deleteAnswer}>Delete</button>
       </div>
       {isUserLoggedIn && (
-        <div className={css.answers_right_side}>
+        <div className={css.question_right_side}>
           {<p> Add {add_time_a} </p>}
           {edited_a ? <p>Edited </p> : ''}
         </div>

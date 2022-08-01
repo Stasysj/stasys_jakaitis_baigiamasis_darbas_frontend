@@ -7,8 +7,10 @@ import Answers from '../Answers/Answers';
 
 import css from './AnswersList.module.css';
 import cssM from '../PrivateQuestionsLits/PrivateQuestionList.module.css';
+import { useAuthCtx } from '../../store/authContext';
 
 function AnswersList() {
+  const { token, user_id, isUserLoggedIn } = useAuthCtx();
   const history = useHistory();
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState([]);
@@ -44,9 +46,13 @@ function AnswersList() {
 
   return (
     <div className={css.answersList_container}>
-      <div className={cssM.button_container}>
-        <button onClick={clickHandler}>Add new Answer</button>
-      </div>
+      <div className={css.line}></div>
+      {isUserLoggedIn && (
+        <div className={cssM.button_container}>
+          <button onClick={clickHandler}>Add new Answer</button>
+        </div>
+      )}
+
       <h3>{questions.length ? questions[0].title_q : 'Lauding.......'}</h3>
 
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p>

@@ -41,36 +41,37 @@ function AddAnswerForm() {
       const obj = {
         id_q: id_q,
       };
-      const fetccounthResult = await editFetchAuth(
-        `${baseUrl}/questions/answers/count`,
-        token,
-        obj
-      );
-      console.log('fetccounthResult', fetccounthResult);
 
-      // if (fetchResult === 'no user created') {
-      //   SetError(fetchResult);
-      //   return;
-      // }
+      //   const fetccounthResult = await editFetchAuth(
+      //     `${baseUrl}/questions/answers/count`,
+      //     token,
+      //     obj
+      //   );
+      //   console.log('fetccounthResult', fetccounthResult);
+
+      if (fetchResult === undefined) {
+        SetError('Nėra ryšio su serveriu!');
+        return;
+      }
       // if (fetchResult === 'user alredy exists') {
       //   SetError(fetchResult);
       //   return;
       // }
-      // const notify = () =>
-      //   toast.success('Registracija sėkminga,tuoj būsite peradresuoti i Login puslapį.', {
-      //     duration: 4000,
-      //     position: 'top-center',
-      //   });
-      // fetchResult === 'user created' &&
-      //   notify() &&
-      //   setTimeout(() => {
-      //     history.replace('/login');
-      //   }, 4000);
+      const notify = () =>
+        toast.success('Atsakymas pridėtas,tuoj būsite peradresuoti į pagrindinį puslapį.', {
+          duration: 2000,
+          position: 'top-center',
+        });
+      fetchResult === 'Answer successfully added' &&
+        notify() &&
+        setTimeout(() => {
+          history.replace('/');
+        }, 2000);
     },
   });
   return (
     <form className={css.form} onSubmit={formik.handleSubmit}>
-      {/* <Toaster /> */}
+      <Toaster />
       <h1 className={css.title}>Add new answer.</h1>
 
       {/* <label className={css.label}>
@@ -113,7 +114,7 @@ function AddAnswerForm() {
       <p className={css.errorMsg}>{formik.errors.password}</p> */}
       {error && <p className={css.errorMsg}>{error}</p>}
       <button className={css.btn} type='submit'>
-        SIGN UP
+        Add
       </button>
     </form>
   );

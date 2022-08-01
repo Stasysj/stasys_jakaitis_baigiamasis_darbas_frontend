@@ -36,7 +36,10 @@ function AddQuestionForm() {
       SetError('');
       const fetchResult = await myFetchAuth(`${baseUrl}/questions`, token, values);
       console.log('fetchResult', fetchResult);
-
+      if (fetchResult === undefined) {
+        SetError('Nėra ryšio su serveriu!');
+        return;
+      }
       const notify = () =>
         toast.success('Klausimas pridėtas,tuoj būsite peradresuoti i klausmų puslapį.', {
           duration: 2000,
@@ -83,7 +86,7 @@ function AddQuestionForm() {
 
       {error && <p className={css.errorMsg}>{error}</p>}
       <button className={css.btn} type='submit'>
-        SIGN UP
+        Add
       </button>
     </form>
   );

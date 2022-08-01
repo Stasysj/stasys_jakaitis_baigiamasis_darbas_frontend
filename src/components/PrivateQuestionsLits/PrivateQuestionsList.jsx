@@ -38,7 +38,9 @@ function PrivateQuestionsList() {
     <>
       <div className={css.questionsList_container}>
         <div className={cssM.button_container}>
-          <button onClick={clickHandler}>Add new question</button>
+          <button className={cssM.button} onClick={clickHandler}>
+            Add new question
+          </button>
         </div>
 
         {questions.length > 0 ? (
@@ -46,7 +48,7 @@ function PrivateQuestionsList() {
             <PrivateQuestions key={qObj.id_q} {...qObj} reload={reloadVotes} allArr={questions} />
           ))
         ) : (
-          <p>Jūs dar neparšėte nei vieno klausimo!</p>
+          <p className={cssM.nulisIrasu}>Jūs dar neparšėte nei vieno klausimo!</p>
         )}
       </div>
     </>

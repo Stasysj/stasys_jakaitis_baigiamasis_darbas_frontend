@@ -92,15 +92,16 @@ function QuestionsList() {
   }, []);
   return (
     <div className={css.questionsList_container}>
-      QuestionsList
       {isUserLoggedIn && (
         <div className={cssM.button_container}>
-          <button onClick={clickHandler}>Add new question</button>
+          <button className={cssM.button} onClick={clickHandler}>
+            Add new question
+          </button>
         </div>
       )}
       <div className={css.antrastes}>
-        <p>Filtruoti klausimus:</p>
-        <p>Rūšiuoti pagal:</p>
+        <p className={css.title}>Filtruoti klausimus:</p>
+        <p className={css.title}>Rūšiuoti pagal:</p>
       </div>
       <div className={css.all_buttons_container}>
         <div className={css.button_container}>
