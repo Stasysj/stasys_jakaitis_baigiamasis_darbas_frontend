@@ -46,7 +46,7 @@ function AnswersList() {
 
   return (
     <div className={css.answersList_container}>
-      <div className={css.line}></div>
+      {/* <div className={css.line}></div> */}
       {isUserLoggedIn && (
         <div className={cssM.button_container}>
           <button onClick={clickHandler}>Add new Answer</button>
@@ -56,6 +56,7 @@ function AnswersList() {
       <h3>{questions.length ? questions[0].title_q : 'Lauding.......'}</h3>
 
       <p>{questions.length ? questions[0].body_q : 'Lauding.......'}</p>
+      <div className={css.line}></div>
       {answers.length === 0 && <p className={css.nulisIrasu}>Į šį klausimą dar niekas neatsakė.</p>}
       {answers.map((aObj) => (
         <Answers key={aObj.id_a} {...aObj} reload={reloadVotes} />
