@@ -51,7 +51,9 @@ function Question({
 
     !arUserisJauPalaikinesArr.length && sukuriamLaika();
     // console.log(arUserisJauPalaikinesArr[0].like_q);
-    arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau laikinai') : laikinam();
+    if (arUserisJauPalaikinesArr.length) {
+      arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau laikinai') : laikinam();
+    }
 
     // !likesArr.length
     //   ? sukuriamLaika()
