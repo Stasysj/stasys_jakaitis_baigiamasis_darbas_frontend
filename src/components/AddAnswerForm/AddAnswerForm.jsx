@@ -42,6 +42,14 @@ function AddAnswerForm() {
         id_q: id_q,
       };
 
+      const rezultCountAnswers = await editFetchAuth(
+        `${baseUrl}/questions/answers/count`,
+        token,
+        obj
+      );
+
+      console.log('rezultCountAnswers', rezultCountAnswers);
+
       //   const fetccounthResult = await editFetchAuth(
       //     `${baseUrl}/questions/answers/count`,
       //     token,

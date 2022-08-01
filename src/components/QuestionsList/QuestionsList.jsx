@@ -62,6 +62,7 @@ function QuestionsList() {
     // console.log(rykiavimas);
 
     const arrCopy = [...questions];
+    console.log('arrcopy, kuri rykiuosim', arrCopy);
     rykiavimasAtsakymus
       ? arrCopy.sort((a, b) => a.number_a - b.number_a)
       : arrCopy.sort((a, b) => b.number_a - a.number_a);
