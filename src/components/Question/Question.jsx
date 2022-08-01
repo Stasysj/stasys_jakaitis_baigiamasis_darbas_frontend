@@ -111,7 +111,9 @@ function Question({
 
     !arUserisJauPalaikinesArr.length && sukuriamDisLaika();
     // console.log(arUserisJauPalaikinesArr[0].like_q);
-    !arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau DIS laikinai') : disLaikinam();
+    if (arUserisJauPalaikinesArr.length) {
+      !arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau DIS laikinai') : disLaikinam();
+    }
 
     // !likesArr.length
     //   ? sukuriamLaika()
