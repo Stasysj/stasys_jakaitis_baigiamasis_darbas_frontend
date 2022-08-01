@@ -65,7 +65,8 @@ function Answers({
       </div>
       <div className={css.answers_right_side}>
         {<p> Add {add_time_a} </p>}
-        {edited_a ? <p>Edited </p> : ''}
+        {isUserLoggedIn && edited_a ? <p>Edited </p> : ''}
+        {}
       </div>
     </div>
   );
