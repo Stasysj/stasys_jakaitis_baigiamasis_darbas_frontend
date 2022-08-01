@@ -43,23 +43,16 @@ function Question({
     const likesArr = await myFetch(`${baseUrl}/questions/likes/${user_id}/${id_q}`);
     console.log('ka siuncia', user_id, id_q);
     console.log('likesArr likesUp', likesArr);
-    // const kaiDarNiekasNeLaikinoArr = likesArr.filter((likeObj) => likeObj.like_q === null);
-    // console.log('kaiDarNiekasNeLaikinoArr', kaiDarNiekasNeLaikinoArr);
+
     console.log('Ar nepakitp likesArr', likesArr);
     const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
     console.log('arUserisJauPalaikinesArr', arUserisJauPalaikinesArr);
 
     !arUserisJauPalaikinesArr.length && sukuriamLaika();
-    // console.log(arUserisJauPalaikinesArr[0].like_q);
+
     if (arUserisJauPalaikinesArr.length) {
       arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau laikinai') : laikinam();
     }
-
-    // !likesArr.length
-    //   ? sukuriamLaika()
-    //   : likesArr[0].like_q
-    //   ? console.log('Tu jau laikinai')
-    //   : laikinam();
   }
 
   async function sukuriamLaika() {

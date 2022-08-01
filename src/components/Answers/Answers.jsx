@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
-import { baseUrl, fetchLikes, myFetch } from '../../utils';
+import { baseUrl, editFetchAuth, fetchLikes, myFetch } from '../../utils';
 import css from './Answers.module.css';
 
 function Answers({
@@ -31,25 +31,117 @@ function Answers({
   //   }, []);
   //---------------------------------------------------Like
   async function likesUp() {
+    const likesArr = await myFetch(`${baseUrl}/answers/likes/${user_id}/${id_a}`);
+    console.log('ka siuncia', user_id, id_a);
+    console.log('likesArr likesUp', likesArr);
+
+    console.log('Ar nepakitp likesArr', likesArr);
+    const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
+    console.log('arUserisJauPalaikinesArr', arUserisJauPalaikinesArr);
+
+    !arUserisJauPalaikinesArr.length && sukuriamLaika();
+
+    if (arUserisJauPalaikinesArr.length) {
+      arUserisJauPalaikinesArr[0].like_a ? console.log('Tu jau dislaikinai') : laikinam();
+    }
+  }
+
+  async function sukuriamLaika() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/answers/likes/${user_id}/${id_a}`,
+      token
+    );
+
+    console.log('RezultatasLaikinam', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesUpNumber();
+  }
+  async function laikinam() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/answers/likes/dislikes/${user_id}/${id_a}`,
+      token
+    );
+    console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesUpNumber();
+  }
+
+  async function likesUpNumber() {
     const body = {
       id_a: id_a,
-      //   user_id: user_id,
     };
     const fetchResult = await fetchLikes(`${baseUrl}/answers/likes`, token, body);
-    // const fetchResults = await fetchLikes(`${baseUrl}/questions/dis/counts`, token, body);
     console.log('fetchResult', fetchResult);
     reload();
   }
+
+  //   async function likesUp() {
+  //     const body = {
+  //       id_a: id_a,
+  //       //   user_id: user_id,
+  //     };
+  //     const fetchResult = await fetchLikes(`${baseUrl}/answers/likes`, token, body);
+  //     // const fetchResults = await fetchLikes(`${baseUrl}/questions/dis/counts`, token, body);
+  //     console.log('fetchResult', fetchResult);
+  //     reload();
+  //   }
   //---------------------------------------------------dislike
   async function likesDown() {
+    const likesArr = await myFetch(`${baseUrl}/answers/likes/${user_id}/${id_a}`);
+    console.log('ka siuncia', user_id, id_a);
+    console.log('likesArr likesUp', likesArr);
+    // const kaiDarNiekasNeLaikinoArr = likesArr.filter((likeObj) => likeObj.like_q === null);
+    // console.log('kaiDarNiekasNeLaikinoArr', kaiDarNiekasNeLaikinoArr);
+    console.log('Ar nepakitp likesArr', likesArr);
+    const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
+    console.log('arUserisJauPalaikinesArr', arUserisJauPalaikinesArr);
+
+    !arUserisJauPalaikinesArr.length && sukuriamDisLaika();
+    // console.log(arUserisJauPalaikinesArr[0].like_q);
+    if (arUserisJauPalaikinesArr.length) {
+      !arUserisJauPalaikinesArr[0].like_a ? console.log('Tu jau DIS laikinai') : disLaikinam();
+    }
+
+    // !likesArr.length
+    //   ? sukuriamLaika()
+    //   : likesArr[0].like_q
+    //   ? console.log('Tu jau laikinai')
+    //   : laikinam();
+  }
+
+  async function sukuriamDisLaika() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/answers/likes/2/${user_id}/${id_a}`,
+      token
+    );
+
+    console.log('RezultatasLaikinam', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesDownNumber();
+  }
+  async function disLaikinam() {
+    const rezultatasLaikinam = await editFetchAuth(
+      `${baseUrl}/answers/likes/2/dislikes/${user_id}/${id_a}`,
+      token
+    );
+    console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
+    rezultatasLaikinam.affectedRows === 1 && likesDownNumber();
+  }
+
+  async function likesDownNumber() {
     const body = {
       id_a: id_a,
-      //   user_id: user_id,
     };
     const fetchResult = await fetchLikes(`${baseUrl}/answers/dislikes`, token, body);
     console.log('fetchResult', fetchResult);
     reload();
   }
+  //   async function likesDown() {
+  //     const body = {
+  //       id_a: id_a,
+  //       //   user_id: user_id,
+  //     };
+  //     const fetchResult = await fetchLikes(`${baseUrl}/answers/dislikes`, token, body);
+  //     console.log('fetchResult', fetchResult);
+  //     reload();
+  //   }
   return (
     <div className={css.answers_container}>
       <div className={css.answers_left_side}>
