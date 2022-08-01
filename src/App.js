@@ -64,6 +64,9 @@ function App() {
           <h2>404 Not found</h2>
         </Route>
       </Switch>
+      <p className='footerP'>
+        <span>&copy;</span> 2020 Baigiamasis darbas. Stasys Jakaitis
+      </p>
     </div>
   );
 }

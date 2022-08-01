@@ -2,7 +2,12 @@
   /* display: flex;
   justify-content: space-between; */
   /* background-image: linear-gradient(to right, rgb(210, 211, 213), rgb(50, 177, 220)); */
-
+  /* z-index: 10; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   background-image: url('../../img2.jpg');
 }
 
