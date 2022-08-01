@@ -34,8 +34,8 @@ p {
   max-width: 400px;
   height: 450px;
   margin: 50px auto;
-  background-image: linear-gradient(to left, rgb(210, 211, 213), rgb(50, 177, 220));
-
+  /* background-image: linear-gradient(to left, rgb(210, 211, 213), rgb(50, 177, 220)); */
+  background-color: rgb(196, 208, 214);
   text-align: center;
   /* background-image: url('bgImg.jpg'); */
   background-size: cover;
@@ -56,4 +56,14 @@ p {
 }
 .fa {
   font-size: 20px;
+}
+.container_login {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rgba(106, 53, 53, 0.514); */
+  padding-left: 25px;
+  padding-right: 25px;
 }
