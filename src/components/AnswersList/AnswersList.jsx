@@ -15,7 +15,6 @@ function AnswersList() {
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState([]);
   const { id_q } = useParams();
-  console.log('id_q ', id_q);
 
   const getQuestions = async () => {
     const fetchQuest = await myFetch(`${baseUrl}/questions/${id_q}`);

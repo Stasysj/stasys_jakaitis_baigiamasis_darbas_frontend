@@ -38,7 +38,6 @@ function PrivateAnswers({
         reload();
       }, 2000);
   };
-  console.log('edited_a', edited_a);
   const editAnswer = async () => {
     history.push(`/edit/answer/${id_a}`);
   };

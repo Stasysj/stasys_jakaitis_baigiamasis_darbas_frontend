@@ -1,11 +1,12 @@
 import React from 'react';
 import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, editFetchAuth, fetchLikes, myFetch } from '../../utils';
+import toast, { Toaster } from 'react-hot-toast';
 import css from './Answers.module.css';
 
 function Answers({
   id_a,
-  user_id,
+
   title_a,
   body_a,
   like_a,
@@ -16,17 +17,27 @@ function Answers({
   add_time_mili_a,
   add_time_a,
 }) {
-  const { token, isUserLoggedIn } = useAuthCtx();
+  const { user_id, token, isUserLoggedIn } = useAuthCtx();
   //---------------------------------------------------Like
+  //-------------------------toats
+  const notify = (m) =>
+    toast.error(m, {
+      duration: 2000,
+      position: 'top-center',
+    });
+
+  //-----------------------------
+  // eslint-disable-next-line no-unused-vars
   async function likesUp() {
     const likesArr = await myFetch(`${baseUrl}/answers/likes/${user_id}/${id_a}`);
 
     const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
 
     !arUserisJauPalaikinesArr.length && sukuriamLaika();
+    console.log('po pirmo ifo');
 
     if (arUserisJauPalaikinesArr.length) {
-      arUserisJauPalaikinesArr[0].like_a ? console.log('Tu jau dislaikinai') : laikinam();
+      arUserisJauPalaikinesArr[0].like_a ? notify('Tu jau laikinai!') : laikinam();
     }
   }
 
@@ -56,13 +67,14 @@ function Answers({
   }
 
   //---------------------------------------------------dislike
+  // eslint-disable-next-line no-unused-vars
   async function likesDown() {
     const likesArr = await myFetch(`${baseUrl}/answers/likes/${user_id}/${id_a}`);
     const arUserisJauPalaikinesArr = likesArr.filter((likesObj) => likesObj.user_id === +user_id);
 
     !arUserisJauPalaikinesArr.length && sukuriamDisLaika();
     if (arUserisJauPalaikinesArr.length) {
-      !arUserisJauPalaikinesArr[0].like_a ? console.log('Tu jau DIS laikinai') : disLaikinam();
+      !arUserisJauPalaikinesArr[0].like_a ? notify('Tu jau dis aikinai!') : disLaikinam();
     }
   }
 
@@ -95,13 +107,14 @@ function Answers({
 
   return (
     <div className={css.answers_container}>
+      <Toaster />
       <div className={css.answers_left_side}>
-        {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>}
+        {/* {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>}
 
         <p className={css.votes}>votes: {like_a}</p>
         {isUserLoggedIn && (
           <i className='fa fa-caret-down' aria-hidden='true' onClick={likesDown}></i>
-        )}
+        )} */}
       </div>
       <div className={css.answers_middle_side}>
         <p>{body_a}</p>

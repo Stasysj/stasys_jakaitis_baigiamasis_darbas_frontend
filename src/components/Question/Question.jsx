@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, editFetchAuth, fetchLikes, myFetch } from '../../utils';
+import toast, { Toaster } from 'react-hot-toast';
 import css from './Question.module.css';
 
 function Question({
@@ -24,6 +25,7 @@ function Question({
   //-----------------USER_ID ish conteksto!!!!!!!!
   const { user_id, token, isUserLoggedIn } = useAuthCtx();
   const history = useHistory();
+  // eslint-disable-next-line no-unused-vars
   const [answers, setAnswers] = useState([]);
 
   //---------------------------------------------------I atsakymus
@@ -44,17 +46,23 @@ function Question({
     !arUserisJauPalaikinesArr.length && sukuriamLaika();
 
     if (arUserisJauPalaikinesArr.length) {
-      arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau laikinai') : laikinam();
+      arUserisJauPalaikinesArr[0].like_q ? notify('Tu jau laikinai!') : laikinam();
     }
   }
+  //-------------------------toats
+  const notify = (m) =>
+    toast.error(m, {
+      duration: 2000,
+      position: 'top-center',
+    });
 
+  //-----------------------------
   async function sukuriamLaika() {
     const rezultatasLaikinam = await editFetchAuth(
       `${baseUrl}/questions/likes/${user_id}/${id_q}`,
       token
     );
 
-    console.log('RezultatasLaikinam', rezultatasLaikinam);
     rezultatasLaikinam.affectedRows === 1 && likesUpNumber();
   }
   async function laikinam() {
@@ -62,7 +70,6 @@ function Question({
       `${baseUrl}/questions/likes/dislikes/${user_id}/${id_q}`,
       token
     );
-    console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
     rezultatasLaikinam.affectedRows === 1 && likesUpNumber();
   }
 
@@ -70,8 +77,8 @@ function Question({
     const body = {
       id_q: id_q,
     };
+    // eslint-disable-next-line no-unused-vars
     const fetchResult = await fetchLikes(`${baseUrl}/questions/likes`, token, body);
-    console.log('fetchResult', fetchResult);
     reload();
   }
 
@@ -83,7 +90,7 @@ function Question({
 
     !arUserisJauPalaikinesArr.length && sukuriamDisLaika();
     if (arUserisJauPalaikinesArr.length) {
-      !arUserisJauPalaikinesArr[0].like_q ? console.log('Tu jau DIS laikinai') : disLaikinam();
+      !arUserisJauPalaikinesArr[0].like_q ? notify('Tu jau dislaikinai!') : disLaikinam();
     }
   }
 
@@ -101,7 +108,6 @@ function Question({
       `${baseUrl}/questions/likes/2/dislikes/${user_id}/${id_q}`,
       token
     );
-    console.log('RezultatasLaikinam po disliko', rezultatasLaikinam);
     rezultatasLaikinam.affectedRows === 1 && likesDownNumber();
   }
 
@@ -109,8 +115,8 @@ function Question({
     const body = {
       id_q: id_q,
     };
+    // eslint-disable-next-line no-unused-vars
     const fetchResult = await fetchLikes(`${baseUrl}/questions/dislikes`, token, body);
-    console.log('fetchResult', fetchResult);
     reload();
   }
 
@@ -121,6 +127,7 @@ function Question({
   }, []);
   return (
     <div className={css.question_container}>
+      <Toaster />
       <div className={css.question_left_side}>
         {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>}
         <p className={css.votes}> votes: {like_q} </p>

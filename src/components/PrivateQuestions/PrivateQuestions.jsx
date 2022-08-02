@@ -33,7 +33,6 @@ function PrivateQuestions({
   };
 
   //----------------------------------------------------------Dlete Hanler
-  console.log('Atsakymu skaicius', number_a);
 
   const deleteQuestionAndAnswers = async () => {
     // eslint-disable-next-line no-unused-vars
@@ -47,7 +46,6 @@ function PrivateQuestions({
 
     reload();
   };
-  console.log('Atsakymu skaicius', number_a);
   const deleteQuestion = async () => {
     const fetchResultQuestion = await deleteFetchAuth(`${baseUrl}/questions/${id_q}`, token);
 

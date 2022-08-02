@@ -46,11 +46,10 @@ function EditQuestionForm() {
     }),
     onSubmit: async (values) => {
       values.user_id = user_id;
-      console.log('values', values);
 
       SetError('');
+      // eslint-disable-next-line no-unused-vars
       const fetchResult = await editFetchAuth(`${baseUrl}/questions/${id_q}`, token, values);
-      console.log('fetchResult', fetchResult);
       init.title_q = '';
       init.body_q = '';
       history.replace(`/private/questions/${user_id}`);
