@@ -1,4 +1,4 @@
-# Baigiamasis darbas.'Internetinis forumas' 👨‍🎓
+# Baigiamasis darbas.'Internetinis forumas' (FRONTENDAS) 👨‍🎓
 
 Su šia programa jūs glite užregistruoti, prijungti ir atjungti vartotoją. Prisijungę vartotojai gali kurti klausimus, atsakyti į užduotus klausymus, balsuoti už patikusius kalusymu ir atsakymus, matyti statistiką.
 
