@@ -6,6 +6,10 @@
 p {
   font-size: 12px;
 }
+.edited {
+  text-decoration: underline;
+  color: blue;
+}
 .answers_container {
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;

@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, deleteFetchAuth, getFetchAuth, myFetch } from '../../utils';
 import css from '../Question/Question.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 function PrivateAnswers({
   id_a,
@@ -72,8 +73,19 @@ function PrivateAnswers({
 
   const deleteAnswer = async () => {
     const fetchResult = await deleteFetchAuth(`${baseUrl}/answers/${id_a}`, token);
+    console.log('fetchResult', fetchResult);
     // setAnswers(fetchResult);
-    reload();
+    const notify = () =>
+      toast.success('Atsakymas sėkmingai ištrintas.', {
+        duration: 2000,
+        position: 'top-center',
+      });
+    fetchResult === 'Answer successfully deleted' &&
+      notify() &&
+      setTimeout(() => {
+        reload();
+        // history.replace('/');
+      }, 2000);
   };
   console.log('edited_a', edited_a);
   const editAnswer = async () => {
@@ -85,6 +97,7 @@ function PrivateAnswers({
   }, []);
   return (
     <div className={css.question_container}>
+      <Toaster />
       <div className={css.question_left_side}>
         <p className={css.votes}> votes {like_a} </p>
 

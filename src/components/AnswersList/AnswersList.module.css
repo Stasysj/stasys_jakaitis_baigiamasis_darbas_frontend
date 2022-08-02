@@ -1,7 +1,7 @@
 .answersList_container {
   margin: 75px auto;
   background-color: rgb(255, 255, 255);
-  max-width: 600px;
+  max-width: 800px;
   padding: 15px;
   cursor: context-menu;
 }
@@ -17,6 +17,6 @@
 }
 .nulisIrasu {
   color: tomato;
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
   padding-top: 5px;
 }

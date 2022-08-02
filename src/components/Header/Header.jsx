@@ -15,7 +15,7 @@ function Header() {
     <header className={css.header}>
       <div className={css.filtras}>
         <div className={css.img}>
-          <img className={css.logo} onClick={onClickHandler} src='Q&A.jpg' alt='Logo' />
+          <img className={css.logo} onClick={onClickHandler} src='/Q&A.jpg' alt='Logo' />
         </div>
 
         <nav>

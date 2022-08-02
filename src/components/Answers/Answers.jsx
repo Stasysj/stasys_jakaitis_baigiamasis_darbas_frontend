@@ -147,7 +147,7 @@ function Answers({
       <div className={css.answers_left_side}>
         {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>}
 
-        <p className={css.votes}>votes {like_a}</p>
+        <p className={css.votes}>votes: {like_a}</p>
         {isUserLoggedIn && (
           <i className='fa fa-caret-down' aria-hidden='true' onClick={likesDown}></i>
         )}
@@ -157,8 +157,7 @@ function Answers({
       </div>
       <div className={css.answers_right_side}>
         {<p> Add {add_time_a} </p>}
-        {isUserLoggedIn && edited_a ? <p>Edited </p> : ''}
-        {}
+        {isUserLoggedIn && edited_a ? <p className={css.edited}>Edited </p> : ''}
       </div>
     </div>
   );

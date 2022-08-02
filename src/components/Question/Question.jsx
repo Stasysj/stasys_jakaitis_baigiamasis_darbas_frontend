@@ -158,12 +158,12 @@ function Question({
       <div className={css.question_left_side}>
         {isUserLoggedIn && <i className='fa fa-caret-up' aria-hidden='true' onClick={likesUp}></i>}
 
-        <p className={css.votes}> votes {like_q} </p>
+        <p className={css.votes}> votes: {like_q} </p>
         {isUserLoggedIn && (
           <i className='fa fa-caret-down' aria-hidden='true' onClick={likesDown}></i>
         )}
 
-        <p className={css.answers}>answers {answers.length}</p>
+        <p className={css.answers}>answers: {answers.length}</p>
       </div>
       <div className={css.question_middle_side} onClick={handler}>
         <h3>{title_q}</h3>
