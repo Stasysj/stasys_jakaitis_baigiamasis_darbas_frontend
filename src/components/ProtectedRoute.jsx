@@ -11,7 +11,7 @@ function ProtectedRoute(props) {
         children
       ) : (
         <>
-          <h2>Jūs neprisujungęs...</h2>
+          <h2 className='pasleptas'>Jūs neprisujungęs...</h2>
 
           <Link to={'/login'}>Prisijungti čia...</Link>
         </>

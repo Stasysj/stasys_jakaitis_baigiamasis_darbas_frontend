@@ -8,7 +8,7 @@ import css from './Question.module.css';
 
 function Question({
   id_q,
-
+  number_a,
   title_q,
   body_q,
   like_q,
@@ -127,7 +127,7 @@ function Question({
         {isUserLoggedIn && (
           <i className='fa fa-caret-down' aria-hidden='true' onClick={likesDown}></i>
         )}
-        <p className={css.answers}>answers: {answers.length}</p>
+        <p className={css.answers}>answers: {number_a}</p>
       </div>
       <div className={css.question_middle_side} onClick={handler}>
         <h3>{title_q}</h3>
