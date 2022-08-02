@@ -28,24 +28,15 @@ function LoginForm() {
     onSubmit: async (values) => {
       //-----------------------------------
       SetError('');
-      console.log('Ka siuncia fetchas', values);
       const fetchResult = await myFetch(`${baseUrl}/login`, 'POST', values);
-      console.log('fetchResult', fetchResult);
       if (!fetchResult.success) {
         SetError(fetchResult);
-        console.log('Nepavyko prisiloginti tokeno nera');
         return;
       }
-
-      login(fetchResult.token);
-      console.log('tokenas irasytas');
-      // if (fetchResult.err) {
-      //   SetError(fetchResult);
-      //   return;
-      // }
+      login(fetchResult.token, fetchResult.user_id, fetchResult.full_name);
       const notify = () =>
         toast.success('Prisijungėte sėkmingai, tuoj būsite peradresuotas į pagrindinį puslapį.', {
-          duration: 4000,
+          duration: 2000,
           position: 'top-center',
         });
 
@@ -53,7 +44,7 @@ function LoginForm() {
         notify() &&
         setTimeout(() => {
           history.replace('/');
-        }, 4000);
+        }, 2000);
     },
   });
 
@@ -101,7 +92,6 @@ function LoginForm() {
           placeholder='Your password'
         />
       </label>
-
       <p className={css.errorMsg}>{formik.errors.password}</p>
       {error && <p className={css.errorMsg}>{error}</p>}
 

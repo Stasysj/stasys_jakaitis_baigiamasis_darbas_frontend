@@ -1,0 +1,22 @@
+.questionsList_container {
+  margin: 75px auto;
+  background-color: rgb(255, 255, 255);
+  max-width: 800px;
+  padding: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.all_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+.antrastes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  text-decoration: underline;
+  font-style: italic;
+}

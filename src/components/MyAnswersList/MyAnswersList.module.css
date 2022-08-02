@@ -1,0 +1,22 @@
+.answersList_container {
+  margin: 75px auto;
+  background-color: rgb(255, 255, 255);
+  max-width: 800px;
+  padding: 15px;
+  cursor: context-menu;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.klaida {
+  color: tomato;
+  border-top: 1px solid black;
+  padding-top: 5px;
+}
+.line {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+.nulisIrasu {
+  color: tomato;
+  margin-top: 15px;
+}

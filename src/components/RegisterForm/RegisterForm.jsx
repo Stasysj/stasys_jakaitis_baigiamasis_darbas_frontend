@@ -29,7 +29,6 @@ function RegisterForm() {
     onSubmit: async (values) => {
       SetError('');
       const fetchResult = await myFetch(`${baseUrl}/register`, 'POST', values);
-      console.log('fetchResult', fetchResult);
       if (fetchResult === 'no user created') {
         SetError(fetchResult);
         return;

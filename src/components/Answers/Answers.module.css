@@ -1,0 +1,31 @@
+p {
+  font-size: 12px;
+}
+.edited {
+  text-decoration: underline;
+}
+.answers_container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  margin-bottom: 5px;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  cursor: context-menu;
+}
+
+.answers_left_side {
+  text-align: right;
+  padding-right: 5px;
+}
+.answers_middle_side {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-left: 5px;
+}
+.answers_right_side {
+  padding-left: 5px;
+  text-align: right;
+}
+.votes {
+  margin-bottom: 0;
+}

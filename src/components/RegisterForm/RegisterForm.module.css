@@ -3,13 +3,12 @@
   margin: 0 auto;
   width: 160px;
   height: 36px;
-  /* border-radius: 30px; */
   border: none;
-  color: #fff;
+  color: rgb(105, 105, 105);
   font-size: 15px;
   cursor: pointer;
-  /* background-color: rgb(92, 86, 122); */
-  background-image: linear-gradient(to right, rgb(245, 245, 245), rgb(184, 195, 255));
+  background-color: rgba(142, 143, 144, 0.702);
+  border: 1px solid #777;
 }
 .title {
   width: 100%;
@@ -26,7 +25,6 @@
 }
 .span {
   font-size: 12px;
-  color: #761919;
   text-transform: uppercase;
 }
 
@@ -35,19 +33,15 @@
   display: block;
   width: 100%;
   margin-top: 5px;
-  /* padding-bottom: 5px; */
   font-size: 16px;
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
   text-align: center;
-  /* font-size: 14px; */
-  color: #761919b4;
+  color: rgb(105, 105, 105);
 }
 
 .forgot_pass {
   margin-top: 15px;
   text-align: left;
   font-size: 12px;
-  color: #761919;
   cursor: pointer;
   text-decoration: underline;
 }

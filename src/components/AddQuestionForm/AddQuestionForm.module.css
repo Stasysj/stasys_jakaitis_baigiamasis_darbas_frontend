@@ -29,7 +29,8 @@
   font-style: italic;
 }
 
-.input {
+.input,
+.inputArea {
   border: none;
   display: block;
   width: 100%;

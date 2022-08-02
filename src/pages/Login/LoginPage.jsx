@@ -7,8 +7,6 @@ function LoginPage() {
       <div className='container_form'>
         <LoginForm />
       </div>
-
-      {/* <div className='container_img'></div> */}
     </div>
   );
 }

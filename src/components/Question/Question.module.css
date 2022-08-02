@@ -1,0 +1,32 @@
+p {
+  font-size: 12px;
+}
+.question_container {
+  display: grid;
+  grid-template-columns: 80px 4fr 2fr;
+  margin-bottom: 5px;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.question_middle_side :hover {
+  cursor: pointer;
+}
+.question_left_side {
+  text-align: right;
+  padding-right: 5px;
+}
+.question_middle_side {
+  border-left: 1px solid black;
+  padding-left: 5px;
+}
+.question_right_side {
+  padding-left: 5px;
+  text-align: right;
+  border-left: 1px solid black;
+}
+.votes {
+  margin-bottom: 0;
+}
+.answers {
+  margin-top: 15px;
+}
