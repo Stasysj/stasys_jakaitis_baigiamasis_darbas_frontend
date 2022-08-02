@@ -1,9 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
-import { baseUrl, deleteFetchAuth, getFetchAuth, myFetch } from '../../utils';
+import { baseUrl, deleteFetchAuth } from '../../utils';
 import css from '../Question/Question.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -22,59 +21,12 @@ function PrivateAnswers({
   add_time_a,
 }) {
   const { token, isUserLoggedIn } = useAuthCtx();
-  //   console.log('tokenas', token, isUserLoggedIn);
   const history = useHistory();
-  const [answers, setAnswers] = useState([]);
-  //   const [like, setLike] = useState('');
 
-  //---------------------------------------------------I atsakymus
-  //   function handler() {
-  //     history.push(`/answers/${id_q}`);
-  //   }
-  //---------------------------------------------------Atsakymu parsiuntimas
-  // const getAnswers = async () => {
-  //   const fetchResult = await getFetchAuth(`${baseUrl}/questions/${id_q}/answers`);
-  //   // console.log('ddddddddddd', fetchResult);
-  //   setAnswers(fetchResult);
-  // };
-  //---------------------------------------------------Like
-  //   async function likesUp() {
-  //     // const arNesikartojaId = allArr.find((obj) => obj.id_q === id_q).likes_counter_q.split('z');
-
-  //     // console.log('objektas', arNesikartojaId);
-  //     // console.log(typeof user_id);
-  //     // console.log(arNesikartojaId, user_id);
-  //     // console.log('boolian', arNesikartojaId.includes(user_id));
-  //     // if (arNesikartojaId.includes(user_id.toString())) {
-  //     //   console.log('Tu jau laikinai');
-  //     //   return;
-  //     // }
-  //     //--------
-  //     const body = {
-  //       id_q: id_q,
-  //       //   user_id: user_id,
-  //     };
-  //     const fetchResult = await fetchLikes(`${baseUrl}/questions/likes`, token, body);
-  //     // const fetchResults = await fetchLikes(`${baseUrl}/questions/dis/counts`, token, body);
-  //     console.log('fetchResult', fetchResult);
-  //     reload();
-  //   }
-  //-------------------------------------------------dislike
-  //   async function likesDown() {
-  //     const body = {
-  //       id_q: id_q,
-  //       //   user_id: user_id,
-  //     };
-  //     const fetchResult = await fetchLikes(`${baseUrl}/questions/dislikes`, token, body);
-  //     console.log('fetchResult', fetchResult);
-  //     reload();
-  //   }
   //----------------------------------------------------------Dlete Hanler
 
   const deleteAnswer = async () => {
     const fetchResult = await deleteFetchAuth(`${baseUrl}/answers/${id_a}`, token);
-    console.log('fetchResult', fetchResult);
-    // setAnswers(fetchResult);
     const notify = () =>
       toast.success('Atsakymas sėkmingai ištrintas.', {
         duration: 2000,
@@ -84,7 +36,6 @@ function PrivateAnswers({
       notify() &&
       setTimeout(() => {
         reload();
-        // history.replace('/');
       }, 2000);
   };
   console.log('edited_a', edited_a);
@@ -92,19 +43,14 @@ function PrivateAnswers({
     history.push(`/edit/answer/${id_a}`);
   };
 
-  useEffect(() => {
-    // getAnswers();
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className={css.question_container}>
       <Toaster />
       <div className={css.question_left_side}>
         <p className={css.votes}> votes {like_a} </p>
-
-        {/* <p className={css.answers}>answers {answers.length}</p> */}
       </div>
       <div className={css.question_middle_side}>
-        {/* <h3>{title_a}</h3> */}
         <p>{body_a}</p>
         <button onClick={editAnswer}>Edit</button>
         <button onClick={deleteAnswer}>Delete</button>

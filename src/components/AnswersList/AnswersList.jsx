@@ -10,7 +10,7 @@ import cssM from '../PrivateQuestionsLits/PrivateQuestionList.module.css';
 import { useAuthCtx } from '../../store/authContext';
 
 function AnswersList() {
-  const { token, user_id, isUserLoggedIn } = useAuthCtx();
+  const { isUserLoggedIn } = useAuthCtx();
   const history = useHistory();
   const [answers, setAnswers] = useState([]);
   const [questions, setQuestions] = useState([]);
@@ -19,16 +19,12 @@ function AnswersList() {
 
   const getQuestions = async () => {
     const fetchQuest = await myFetch(`${baseUrl}/questions/${id_q}`);
-
     setQuestions(fetchQuest);
-
-    // console.log('func', resu);
   };
   const getAnswers = async () => {
     const fetchResult = await myFetch(`${baseUrl}/questions/${id_q}/answers`);
     setAnswers(fetchResult);
   };
-  console.log('uzh func', questions);
 
   //---------------------------------------Reload votes children
   function reloadVotes() {
@@ -42,11 +38,11 @@ function AnswersList() {
   useEffect(() => {
     getAnswers();
     getQuestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className={css.answersList_container}>
-      {/* <div className={css.line}></div> */}
       {isUserLoggedIn && (
         <div className={cssM.button_container}>
           <button onClick={clickHandler}>Add new Answer</button>

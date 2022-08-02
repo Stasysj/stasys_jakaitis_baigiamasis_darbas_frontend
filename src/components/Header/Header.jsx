@@ -1,11 +1,10 @@
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import css from './Header.module.css';
 
 function Header() {
   const history = useHistory();
   const { isUserLoggedIn, logout, user_id } = useAuthCtx();
-  // const { user_id, user_name } = useAuthCtx();
 
   function onClickHandler() {
     history.replace('/');
@@ -24,9 +23,6 @@ function Header() {
               <NavLink className='navLink' exact to='/'>
                 Home
               </NavLink>
-              {/* <NavLink className='navLink' to={`/private/${user_id}`}>
-              Privte zone
-            </NavLink> */}
               <NavLink className='navLink' to={`/private/questions/${user_id}`}>
                 My questions
               </NavLink>

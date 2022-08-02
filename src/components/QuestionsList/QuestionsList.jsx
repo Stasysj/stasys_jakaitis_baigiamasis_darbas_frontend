@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 
 function QuestionsList() {
-  const { token, isUserLoggedIn, user_id } = useAuthCtx();
+  const { isUserLoggedIn, user_id } = useAuthCtx();
   const [questions, setQuestions] = useState([]);
   const [rykiavimasData, setRykiavimasData] = useState(true);
   const [rykiavimasAtsakymus, setRykiavimasAtsakymus] = useState(true);
@@ -19,10 +19,6 @@ function QuestionsList() {
 
   const getQuestions = async () => {
     const fetchResult = await myFetch(`${baseUrl}/questions`);
-
-    // const fetchResult2 = await myFetch(`${baseUrl}/questions/${id_q}/answers`);
-
-    console.log('QUsetion list fetch data', fetchResult);
     setQuestions(fetchResult);
   };
   //---------------------------------------Reload votes children
@@ -36,33 +32,20 @@ function QuestionsList() {
   //------------------------------------------------------Filtrai---------
   //----------------------------------------------------------------------
   function filtrasAtsakyti() {
-    // getQuestions();
-    // const arrCopy = [...questions];
-    // setQuestions(arrCopy);
     const arrAtsakyti = questions.filter((qObj) => qObj.number_a > 0);
-    console.log('atsakyti', arrAtsakyti);
-
     setQuestions(arrAtsakyti);
-    // console.log('ArrCopy po atsakyti', arrCopy);
   }
   function filtrasNEatsakyti() {
-    // getQuestions();
-    // const arrCopy = [...questions];
-    // setQuestions(arrCopy);
     const arrNeatsakyti = questions.filter((qObj) => qObj.number_a === 0);
-    console.log('neNeatsakyti', arrNeatsakyti);
     setQuestions(arrNeatsakyti);
-    // console.log('ArrCopy po NE atsakyti', arrCopy);
   }
   //-------------------------------------------------------
   //---------------------------------------------Rusiavimas
 
   function rusiuotiPagalAts() {
     setRykiavimasAtsakymus((prev) => !prev);
-    // console.log(rykiavimas);
 
     const arrCopy = [...questions];
-    console.log('arrcopy, kuri rykiuosim', arrCopy);
     rykiavimasAtsakymus
       ? arrCopy.sort((a, b) => a.number_a - b.number_a)
       : arrCopy.sort((a, b) => b.number_a - a.number_a);
@@ -70,7 +53,6 @@ function QuestionsList() {
   }
   function rusiuotiPagalData() {
     setRykiavimasData((prev) => !prev);
-    console.log(rykiavimasData);
     const arrCopy = [...questions];
 
     rykiavimasData

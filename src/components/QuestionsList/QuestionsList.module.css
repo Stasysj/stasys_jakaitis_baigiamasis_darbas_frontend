@@ -14,7 +14,6 @@
 .antrastes {
   display: flex;
   justify-content: space-between;
-  /* background-color: aquamarine; */
   align-items: center;
 }
 .title {

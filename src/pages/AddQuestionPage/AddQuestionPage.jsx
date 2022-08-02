@@ -1,6 +1,5 @@
 import React from 'react';
 import AddQuestionForm from '../../components/AddQuestionForm/AddQuestionForm';
-import css from './AddQuestionPage.module.css';
 
 function AddQuestionPage() {
   return (

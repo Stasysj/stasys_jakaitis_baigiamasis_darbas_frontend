@@ -1,41 +1,28 @@
-.answers_card {
-  /* margin: 50px auto;
-      background-color: aqua;
-      max-width: 600px; */
-}
 p {
   font-size: 12px;
 }
 .edited {
   text-decoration: underline;
-  color: blue;
 }
 .answers_container {
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
   margin-bottom: 5px;
   border-bottom: 1px solid black;
-  /* border-top: 1px solid black; */
   padding: 5px;
   cursor: context-menu;
 }
 
-/* .answers_container :hover {
-  cursor: pointer;
-} */
 .answers_left_side {
-  /* background-color: blueviolet; */
   text-align: right;
   padding-right: 5px;
 }
 .answers_middle_side {
-  /* background-color: blue; */
   border-left: 1px solid black;
   border-right: 1px solid black;
   padding-left: 5px;
 }
 .answers_right_side {
-  /* background-color: tomato; */
   padding-left: 5px;
   text-align: right;
 }

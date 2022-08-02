@@ -8,7 +8,6 @@ import RegisterPage from './pages/Register/RegisterPage';
 import Header from './components/Header/Header';
 
 import AnswersPage from './pages/AnswersPage/AnswersPage';
-import PrivatePage from './pages/PrivatePage/PrivatePage';
 import MyQuestionsPage from './pages/MyQuestionsPage/MyQuestionsPage';
 import MyAnswerPage from './pages/MyAnswerPage/MyAnswerPage';
 import AddQuestionPage from './pages/AddQuestionPage/AddQuestionPage';
@@ -64,9 +63,6 @@ function App() {
           <h2>404 Not found</h2>
         </Route>
       </Switch>
-      {/* <p className='footerP'>
-        <span>&copy;</span> 2020 Baigiamasis darbas. Stasys Jakaitis
-      </p> */}
     </div>
   );
 }

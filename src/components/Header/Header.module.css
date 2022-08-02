@@ -1,8 +1,4 @@
 .header {
-  /* display: flex;
-  justify-content: space-between; */
-  /* background-image: linear-gradient(to right, rgb(210, 211, 213), rgb(50, 177, 220)); */
-  /* z-index: 10; */
   position: fixed;
   top: 0;
   left: 0;
@@ -11,20 +7,6 @@
   background-image: url('../../img2.jpg');
 }
 
-/* .navLink {
-  display: inline-block;
-  padding: 1em 1.7em;
-  color: rgb(209, 79, 15);
-}
-.navLink:hover {
-  background-color: rgb(136, 195, 216);
-}
-.navLinkAktiv {
-  color: rgb(108, 108, 108);
-  display: inline-block;
-  padding: 1em 1.7em;
-  text-decoration: underline;
-} */
 .logo {
   height: 45px;
   background-color: rgba(169, 169, 169, 0);

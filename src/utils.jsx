@@ -8,9 +8,7 @@ export async function myFetch(url, method = 'GET', data = null) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('myFetch error', error);
-  }
+  } catch (error) {}
 }
 //-------------------------------------------------------post
 export async function myFetchAuth(url, token, newAddObj = null) {
@@ -26,9 +24,7 @@ export async function myFetchAuth(url, token, newAddObj = null) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('myFetchAuth error', error);
-  }
+  } catch (error) {}
 }
 //-----------------------------------------------------get
 export async function getFetchAuth(url, token) {
@@ -43,9 +39,7 @@ export async function getFetchAuth(url, token) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('getFetchAuth error', error);
-  }
+  } catch (error) {}
 }
 //---------------------------------------------------del
 export async function deleteFetchAuth(url, token) {
@@ -60,9 +54,7 @@ export async function deleteFetchAuth(url, token) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('deleteFetchAuth error', error);
-  }
+  } catch (error) {}
 }
 //-------------------------------------------------------Edit
 export async function editFetchAuth(url, token, newAddObj) {
@@ -78,9 +70,7 @@ export async function editFetchAuth(url, token, newAddObj) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('editFetchAuth error', error);
-  }
+  } catch (error) {}
 }
 //---------------------------------------------------Like-dislike
 export async function fetchLikes(url, token, newAddObj) {
@@ -96,9 +86,7 @@ export async function fetchLikes(url, token, newAddObj) {
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
-  } catch (error) {
-    console.log('fetchLikes error', error);
-  }
+  } catch (error) {}
 }
 //-------------------------------------------------------
 

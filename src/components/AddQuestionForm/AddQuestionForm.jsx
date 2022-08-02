@@ -13,7 +13,6 @@ import { useAuthCtx } from '../../store/authContext';
 const initValues = {
   title_q: '',
   body_q: '',
-  //   user_id: '',
 };
 // -------------------------------
 function AddQuestionForm() {
@@ -35,7 +34,6 @@ function AddQuestionForm() {
 
       SetError('');
       const fetchResult = await myFetchAuth(`${baseUrl}/questions`, token, values);
-      console.log('fetchResult', fetchResult);
       if (fetchResult === undefined) {
         SetError('Nėra ryšio su serveriu!');
         return;

@@ -1,18 +1,3 @@
-/* * {
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-} */
 .navLink {
   display: inline-block;
   padding: 1em 1.7em;
@@ -34,18 +19,11 @@ p {
   max-width: 400px;
   height: 450px;
   margin: 70px auto;
-  /* background-image: linear-gradient(to left, rgb(210, 211, 213), rgb(50, 177, 220)); */
   background-color: rgba(196, 208, 214, 0.866);
 
   text-align: center;
   background-image: url('img2.jpg');
-  /* background-size: cover; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10; */
 }
 .container_form {
   height: 100%;
@@ -53,7 +31,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: rgba(157, 197, 215, 0.805); */
   background: rgba(157, 197, 215, 0.9);
 
   padding-left: 25px;
@@ -71,45 +48,19 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: rgba(106, 53, 53, 0.514); */
   padding-left: 25px;
   padding-right: 25px;
 }
-body {
-  /* background-color: blueviolet; */
-  /* background-image: url('img2.jpg'); */
-  /* background-size: cover; */
-  /* width: inherit; */
-}
-/* .App {
-  width: 100%;
-  height: 100vh;
-  padding-bottom: 15px;
-  background-color: rgba(247, 250, 250, 0);
-  background-image: linear-gradient(
-    to left,
-    rgba(226, 228, 231, 0.914),
-    rgba(106, 189, 217, 0.972)
-  );
-} */
+
 .footerI,
 .footerP {
   font-size: 12px;
   color: rgb(114, 160, 177);
   text-align: center;
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10; */
 }
 h3 {
   text-decoration: underline;
-  /* margin-bottom: 5px; */
 }
-/* h1 {
-  margin-top: 50px;
-} */
 .antraste {
   margin: 70px auto 0px;
   background-color: rgb(255, 255, 255);
